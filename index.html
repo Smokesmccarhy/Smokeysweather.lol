@@ -1472,8 +1472,9 @@ function renderHourly(h,elId){
 
 // ── FETCH WEATHER ──
 async function fetchWeather(lat,lon,city,region){
-  document.getElementById('siteLoader').classList.remove('gone');
-  document.getElementById('errMsg').classList.remove('show');
+  const loader=document.getElementById('siteLoader');
+  const errEl=document.getElementById('errMsg');
+  errEl.classList.remove('show');
   currentLat=lat;currentLon=lon;currentCity=city;
   try{
     const url=`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,apparent_temperature,relative_humidity_2m,dew_point_2m,precipitation,weather_code,cloud_cover,surface_pressure,wind_speed_10m,wind_direction_10m,wind_gusts_10m,visibility,uv_index&hourly=temperature_2m,weather_code,precipitation_probability&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_sum,sunrise,sunset&wind_speed_unit=mph&forecast_days=7&timezone=auto`;
@@ -1482,13 +1483,16 @@ async function fetchWeather(lat,lon,city,region){
     document.getElementById('heroCity').textContent=city;
     document.getElementById('heroRegion').textContent=region||'';
     renderWeather(data);
-    await Promise.all([fetchAQI(lat,lon),fetchAlerts(lat,lon)]);
+    fetchAQI(lat,lon).catch(()=>{});
+    fetchAlerts(lat,lon).catch(()=>{});
     document.getElementById('radarFrame').src=`https://embed.windy.com/embed2.html?lat=${lat}&lon=${lon}&detailLat=${lat}&detailLon=${lon}&width=100%&height=520&zoom=7&level=surface&overlay=rain&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=mph&metricTemp=%C2%B0F&radarRange=-1`;
     loadNews();
   }catch(e){
-    document.getElementById('errMsg').textContent='City not found. Either it doesn\'t exist or you can\'t spell. Both are likely.';
-    document.getElementById('errMsg').classList.add('show');
-  }finally{document.getElementById('siteLoader').classList.add('gone');}
+    errEl.textContent='Couldn\'t load weather. Check your connection or try another city.';
+    errEl.classList.add('show');
+  }finally{
+    loader.classList.add('gone');
+  }
 }
 
 async function doSearch(){
@@ -1782,4 +1786,4 @@ function clearAllCustomAlerts(){customAlerts=[];localStorage.removeItem('swn_ale
 // ── ADMIN NEWS ──
 function publishNewsStory(){
   const headline=document.getElementById('ns-headline').value.trim();if(!headline)return;
-  const story={cat:document.getElementById('ns-cat').value,icon:document.getElementById('ns-icon').value.trim()||'📰',headline,snippet:document.getElementById('ns-b
+  const story={cat:document.getElementById('ns-cat').value,icon:document.getElementById('ns-icon').value.trim()||'📰',headline,snippet:document.getElementById('ns-body').value.trim().substring(0,200)||'No details provided.',time:'Just
