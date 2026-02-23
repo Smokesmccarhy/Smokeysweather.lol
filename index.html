@@ -936,37 +936,9 @@ input,select,textarea{font-family:'Montserrat',sans-serif;}
 <!-- VIDEOS -->
 <div class="page" id="page-videos">
   <div class="video-page">
-    <div class="broadcast-hero">
-      <div>
-        <div class="broadcast-title">📡 Broadcast Studio</div>
-        <div class="broadcast-sub">Go live with your green screen setup. Your camera feed with green screen removal broadcasts directly on Smokey's Weather Network with real weather data overlays.</div>
-      </div>
-      <button class="go-live-btn" onclick="openPwGate()"><i class="fas fa-circle" style="color:#ef4444;font-size:0.7rem;"></i> GO LIVE</button>
-    </div>
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:10px;">
-      <div class="section-head" style="margin-bottom:0;flex:1;min-width:200px;"><i class="fas fa-film"></i> Video Library</div>
-      <button class="add-video-btn" onclick="toggleVideoForm()"><i class="fas fa-plus"></i> ADD VIDEO</button>
-    </div>
-    <div class="video-form-wrap" id="videoFormWrap">
-      <div style="font-family:'Oswald',sans-serif;font-size:1rem;letter-spacing:3px;color:var(--gold);margin-bottom:16px;">ADD NEW VIDEO</div>
-      <div class="form-grid-2">
-        <div><label class="form-lbl">Title *</label><input class="form-inp" id="vTitle" placeholder="e.g. Storm Front Moving In from the West"/></div>
-        <div><label class="form-lbl">Category</label>
-          <select class="form-sel" id="vCat">
-            <option value="report">Weather Report</option>
-            <option value="live">Live Broadcast</option>
-            <option value="clip">Field Clip</option>
-            <option value="upload">Uploaded Video</option>
-          </select>
-        </div>
-        <div class="fg-full"><label class="form-lbl">YouTube / Video URL</label><input class="form-inp" id="vURL" placeholder="https://youtube.com/watch?v=..."/></div>
-        <div class="fg-full"><label class="form-lbl">Or Upload Video File</label><input type="file" class="form-inp" id="vFile" accept="video/*" style="padding:8px;"/></div>
-        <div class="fg-full"><label class="form-lbl">Description</label><textarea class="form-ta" id="vDesc" placeholder="Brief description…"></textarea></div>
-      </div>
-      <div class="form-actions-row">
-        <button class="form-save-btn" onclick="saveVideo()">SAVE VIDEO</button>
-        <button class="form-cancel-btn" onclick="toggleVideoForm()">CANCEL</button>
-      </div>
+
+    <div style="margin-bottom:16px;">
+      <div class="section-head"><i class="fas fa-film"></i> Video Library</div>
     </div>
     <div class="video-grid" id="videoGrid"></div>
     <div class="video-empty" id="videoEmpty">
