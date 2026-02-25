@@ -25,11 +25,9 @@ input,select,textarea{font-family:'Montserrat',sans-serif;}
 ::-webkit-scrollbar-track{background:var(--surface);}
 ::-webkit-scrollbar-thumb{background:var(--blue);border-radius:3px;}
 
+/* BG */
 .bg-scene{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none;}
-.bg-grad{position:absolute;inset:0;background:
-  radial-gradient(ellipse 80% 50% at 50% -5%,rgba(21,101,192,0.2) 0%,transparent 60%),
-  radial-gradient(ellipse 50% 40% at 0% 100%,rgba(0,188,212,0.06) 0%,transparent 50%),
-  linear-gradient(180deg,#04090f 0%,#071018 100%);}
+.bg-grad{position:absolute;inset:0;background:radial-gradient(ellipse 80% 50% at 50% -5%,rgba(21,101,192,0.2) 0%,transparent 60%),radial-gradient(ellipse 50% 40% at 0% 100%,rgba(0,188,212,0.06) 0%,transparent 50%),linear-gradient(180deg,#04090f 0%,#071018 100%);}
 .bg-cloud{position:absolute;border-radius:100px;background:rgba(66,165,245,0.025);filter:blur(60px);animation:bgdrift linear infinite;}
 @keyframes bgdrift{0%{transform:translateX(-5%);}50%{transform:translateX(4%);}100%{transform:translateX(-5%);}}
 .rain-wrap{position:absolute;inset:0;opacity:0;transition:opacity 2s;}
@@ -113,7 +111,6 @@ input,select,textarea{font-family:'Montserrat',sans-serif;}
 .temp-unit-lbl{font-family:'Oswald',sans-serif;font-size:1.8rem;font-weight:300;color:var(--dim);margin-bottom:10px;}
 .condition-lbl{font-family:'Oswald',sans-serif;font-size:1.3rem;letter-spacing:3px;color:var(--sky);margin-bottom:22px;}
 .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
-@media(max-width:600px){.stats-grid{grid-template-columns:repeat(2,1fr);}}
 .stat-card{background:rgba(0,0,0,0.25);border:1px solid rgba(66,165,245,0.09);border-radius:8px;padding:12px;text-align:center;transition:var(--transition);}
 .stat-card:hover{border-color:rgba(66,165,245,0.25);background:rgba(30,80,150,0.1);}
 .stat-lbl{font-size:0.58rem;color:var(--dim);letter-spacing:2px;text-transform:uppercase;margin-bottom:5px;}
@@ -157,7 +154,6 @@ input,select,textarea{font-family:'Montserrat',sans-serif;}
 
 /* 7-DAY */
 .forecast7{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;}
-@media(max-width:700px){.forecast7{grid-template-columns:repeat(4,1fr);}}
 .fday{background:var(--card);border:1px solid rgba(66,165,245,0.08);border-radius:8px;padding:12px 8px;text-align:center;transition:var(--transition);}
 .fday:hover,.fday.today{background:rgba(30,100,200,0.1);border-color:rgba(66,165,245,0.3);transform:translateY(-2px);}
 .fday.today{border-color:var(--gold);}
@@ -221,24 +217,184 @@ input,select,textarea{font-family:'Montserrat',sans-serif;}
 /* AIR QUALITY */
 .aq-page{padding:20px 24px;max-width:1400px;margin:0 auto;}
 .aq-hero{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:28px;display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center;margin-bottom:16px;}
-@media(max-width:600px){.aq-hero{grid-template-columns:1fr;text-align:center;}}
 .aq-circle{width:120px;height:120px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;border:4px solid;position:relative;flex-shrink:0;}
 .aq-circle-num{font-family:'Oswald',sans-serif;font-size:2.2rem;font-weight:700;line-height:1;}
 .aq-circle-lbl{font-size:0.6rem;letter-spacing:2px;margin-top:2px;}
 .aq-details-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px;}
-@media(max-width:500px){.aq-details-grid{grid-template-columns:repeat(2,1fr);}}
 .aq-detail{background:rgba(0,0,0,0.2);border:1px solid rgba(66,165,245,0.08);border-radius:8px;padding:12px;text-align:center;}
 .aq-detail-lbl{font-size:0.6rem;color:var(--dim);letter-spacing:2px;text-transform:uppercase;margin-bottom:5px;}
 .aq-detail-val{font-family:'Oswald',sans-serif;font-size:1.1rem;font-weight:600;color:#fff;}
 
-/* VIDEO PAGE */
+/* ══ VIDEO PAGE ══ */
 .video-page{padding:20px 24px;max-width:1400px;margin:0 auto;}
-.broadcast-hero{background:linear-gradient(135deg,rgba(10,25,50,0.9),rgba(5,12,22,0.95));border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:20px;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center;}
-@media(max-width:600px){.broadcast-hero{grid-template-columns:1fr;}}
-.broadcast-title{font-family:'Oswald',sans-serif;font-size:1.6rem;font-weight:700;letter-spacing:2px;color:#fff;margin-bottom:6px;}
-.broadcast-sub{font-size:0.78rem;color:var(--dim);font-weight:300;line-height:1.6;}
-.go-live-btn{background:linear-gradient(135deg,#dc2626,#b91c1c);border:none;color:#fff;padding:14px 28px;border-radius:8px;font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:3px;font-size:1rem;transition:var(--transition);white-space:nowrap;box-shadow:0 4px 20px rgba(220,38,38,0.35);display:flex;align-items:center;gap:10px;}
-.go-live-btn:hover{transform:translateY(-2px);box-shadow:0 6px 25px rgba(220,38,38,0.5);}
+
+/* VIDEO GRID — FIXED */
+.video-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+  gap:20px;
+  align-items:start;
+}
+
+/* VIDEO CARD — FIXED */
+.video-card{
+  background:rgba(10,22,40,0.85);
+  border:1px solid rgba(66,165,245,0.12);
+  border-radius:12px;
+  overflow:hidden;
+  transition:transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  display:flex;
+  flex-direction:column;
+}
+.video-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 12px 40px rgba(0,0,0,0.5), 0 0 0 1px rgba(66,165,245,0.25);
+  border-color:rgba(66,165,245,0.3);
+}
+
+/* THUMBNAIL — FIXED ASPECT RATIO */
+.video-thumb{
+  width:100%;
+  aspect-ratio:16/9;
+  background:#071018;
+  position:relative;
+  overflow:hidden;
+  cursor:pointer;
+  flex-shrink:0;
+}
+.video-thumb img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform 0.3s ease;
+}
+.video-card:hover .video-thumb img{transform:scale(1.05);}
+.video-thumb video{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+.video-thumb-placeholder{
+  width:100%;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  color:var(--dim);
+  background:linear-gradient(135deg,#071018,#0a1628);
+}
+.video-thumb-placeholder span:first-child{font-size:2.5rem;}
+.video-thumb-placeholder span:last-child{font-size:0.7rem;letter-spacing:2px;font-family:'Oswald',sans-serif;}
+
+/* PLAY OVERLAY */
+.video-play-overlay{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.35);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  opacity:0;
+  transition:opacity 0.2s;
+}
+.video-thumb:hover .video-play-overlay{opacity:1;}
+.play-circle{
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  background:rgba(245,158,11,0.92);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.4rem;
+  padding-left:5px;
+  box-shadow:0 4px 20px rgba(0,0,0,0.5);
+}
+
+/* VIDEO CARD BODY */
+.video-body{
+  padding:16px 18px;
+  display:flex;
+  flex-direction:column;
+  flex:1;
+}
+.video-tag-row{display:flex;align-items:center;gap:8px;margin-bottom:8px;flex-wrap:wrap;}
+.video-tag{font-family:'Oswald',sans-serif;font-size:0.62rem;letter-spacing:2px;padding:3px 9px;border-radius:3px;text-transform:uppercase;}
+.tag-live{background:rgba(220,38,38,0.15);color:#fca5a5;border:1px solid rgba(220,38,38,0.25);}
+.tag-report{background:rgba(66,165,245,0.12);color:var(--sky);border:1px solid rgba(66,165,245,0.2);}
+.tag-clip{background:rgba(245,158,11,0.1);color:var(--gold);border:1px solid rgba(245,158,11,0.2);}
+.tag-upload{background:rgba(74,222,128,0.1);color:#86efac;border:1px solid rgba(74,222,128,0.2);}
+.video-date{font-size:0.62rem;color:var(--dim);margin-left:auto;white-space:nowrap;}
+.video-title{font-family:'Oswald',sans-serif;font-size:1.05rem;font-weight:600;color:#fff;margin-bottom:6px;line-height:1.3;}
+.video-desc{font-size:0.76rem;color:var(--dim);font-weight:300;line-height:1.55;margin-bottom:14px;flex:1;}
+.video-actions{display:flex;gap:8px;margin-top:auto;}
+.v-act-btn{flex:1;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);color:var(--dim);border-radius:6px;padding:8px;font-family:'Oswald',sans-serif;letter-spacing:1px;font-size:0.7rem;transition:var(--transition);}
+.v-act-btn:hover{color:#fff;border-color:rgba(255,255,255,0.2);background:rgba(255,255,255,0.07);}
+
+/* EMPTY STATE */
+.video-empty{
+  text-align:center;
+  padding:70px 20px;
+  border:2px dashed rgba(66,165,245,0.12);
+  border-radius:12px;
+  display:none;
+}
+.video-empty.show{display:block;}
+.video-empty-icon{font-size:3.5rem;margin-bottom:14px;}
+.video-empty-t{font-family:'Oswald',sans-serif;font-size:1.2rem;letter-spacing:3px;color:rgba(255,255,255,0.2);margin-bottom:8px;}
+.video-empty-s{font-size:0.78rem;color:var(--dim);}
+
+/* VIDEO MODAL */
+.video-modal{position:fixed;inset:0;background:rgba(0,0,0,0.93);z-index:400;display:none;align-items:center;justify-content:center;padding:20px;}
+.video-modal.open{display:flex;}
+.video-modal-inner{background:#04090f;border:1px solid var(--border);border-radius:12px;max-width:960px;width:100%;overflow:hidden;position:relative;}
+.video-modal-close{position:absolute;top:12px;right:14px;background:rgba(255,255,255,0.08);border:none;color:#fff;width:34px;height:34px;border-radius:50%;font-size:1rem;z-index:2;transition:var(--transition);}
+.video-modal-close:hover{background:rgba(220,38,38,0.5);}
+.video-modal-frame{width:100%;aspect-ratio:16/9;}
+.video-modal-frame iframe,.video-modal-frame video{width:100%;height:100%;border:none;display:block;}
+
+/* NEWS */
+.news-page{padding:20px 24px;max-width:1400px;margin:0 auto;}
+.news-grid{display:grid;grid-template-columns:2fr 1fr;gap:20px;}
+.news-feed{display:flex;flex-direction:column;gap:14px;}
+.news-card{background:var(--card);border:1px solid rgba(66,165,245,0.1);border-radius:var(--radius);padding:18px 20px;transition:var(--transition);display:flex;gap:16px;align-items:flex-start;}
+.news-card:hover{border-color:rgba(66,165,245,0.25);transform:translateX(4px);}
+.news-cat-icon{font-size:1.8rem;flex-shrink:0;margin-top:2px;}
+.news-cat-tag{font-family:'Oswald',sans-serif;font-size:0.62rem;letter-spacing:3px;color:var(--sky);text-transform:uppercase;margin-bottom:5px;}
+.news-headline{font-family:'Oswald',sans-serif;font-size:1.05rem;font-weight:600;color:#fff;margin-bottom:6px;line-height:1.3;}
+.news-snippet{font-size:0.78rem;color:var(--dim);font-weight:300;line-height:1.6;margin-bottom:8px;}
+.news-meta{font-size:0.62rem;color:var(--dim);opacity:0.7;display:flex;gap:14px;}
+.news-sidebar{display:flex;flex-direction:column;gap:14px;}
+.trending-box{background:var(--card);border:1px solid var(--border-gold);border-radius:var(--radius);padding:16px;}
+.trending-item{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid rgba(66,165,245,0.07);align-items:flex-start;}
+.trending-item:last-child{border-bottom:none;}
+.trending-num{font-family:'Oswald',sans-serif;font-size:1.2rem;font-weight:700;color:rgba(66,165,245,0.3);min-width:24px;line-height:1.2;}
+.trending-text{font-size:0.78rem;color:var(--dim);font-weight:300;line-height:1.5;}
+
+/* VIDEO PAGE HEADER ROW */
+.video-page-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:12px;}
+.video-page-title{font-family:'Oswald',sans-serif;font-size:0.75rem;letter-spacing:4px;text-transform:uppercase;color:var(--dim);display:flex;align-items:center;gap:12px;}
+.video-page-title::after{content:'';width:60px;height:1px;background:var(--border);}
+
+/* ADMIN-ONLY GO LIVE BUTTON — shown only in admin panel / broadcast section */
+.go-live-btn{
+  background:linear-gradient(135deg,#dc2626,#b91c1c);
+  border:none;color:#fff;
+  padding:12px 26px;
+  border-radius:8px;
+  font-family:'Oswald',sans-serif;
+  font-weight:600;
+  letter-spacing:3px;
+  font-size:0.95rem;
+  transition:var(--transition);
+  display:flex;align-items:center;gap:10px;
+  box-shadow:0 4px 20px rgba(220,38,38,0.35);
+}
+.go-live-btn:hover{transform:translateY(-2px);box-shadow:0 6px 28px rgba(220,38,38,0.55);}
 .go-live-btn i{animation:livedot 1s ease-in-out infinite;}
 
 /* BROADCAST MODAL */
@@ -251,7 +407,7 @@ input,select,textarea{font-family:'Montserrat',sans-serif;}
 .bcast-stop{background:rgba(220,38,38,0.15);border:1px solid rgba(220,38,38,0.4);color:#ef4444;padding:8px 16px;border-radius:5px;font-family:'Oswald',sans-serif;letter-spacing:2px;font-size:0.8rem;}
 .bcast-stop:hover{background:rgba(220,38,38,0.3);}
 .bcast-viewport{flex:1;position:relative;background:#000;display:flex;align-items:center;justify-content:center;overflow:hidden;}
-.bcast-canvas{position:absolute;inset:0;width:100%;height:100%;}
+.bcast-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:5;}
 .bcast-video-hidden{position:absolute;opacity:0;pointer-events:none;width:1px;height:1px;}
 .bcast-overlay-top{position:absolute;top:0;left:0;right:0;z-index:10;pointer-events:none;}
 .bcast-banner{background:linear-gradient(90deg,rgba(4,9,15,0.92),rgba(4,9,15,0.7),transparent);padding:10px 20px;display:flex;align-items:center;gap:14px;}
@@ -262,7 +418,7 @@ input,select,textarea{font-family:'Montserrat',sans-serif;}
 .bcast-city-line{font-family:'Oswald',sans-serif;font-size:0.65rem;letter-spacing:4px;color:var(--sky);margin-bottom:4px;}
 .bcast-temp-line{font-family:'Oswald',sans-serif;font-size:1.8rem;font-weight:700;color:#fff;line-height:1;}
 .bcast-cond-line{font-family:'Oswald',sans-serif;font-size:0.8rem;letter-spacing:2px;color:var(--dim);}
-.bcast-settings{position:absolute;right:0;top:50px;bottom:44px;width:260px;background:rgba(4,9,15,0.96);border-left:1px solid var(--border);z-index:20;overflow-y:auto;padding:16px;display:none;}
+.bcast-settings{position:absolute;right:0;top:0;bottom:44px;width:270px;background:rgba(4,9,15,0.97);border-left:1px solid var(--border);z-index:20;overflow-y:auto;padding:16px;display:none;}
 .bcast-settings.open{display:block;}
 .bcast-set-title{font-family:'Oswald',sans-serif;font-size:0.75rem;letter-spacing:3px;color:var(--dim);margin-bottom:14px;}
 .bcast-set-row{margin-bottom:14px;}
@@ -278,8 +434,9 @@ input,select,textarea{font-family:'Montserrat',sans-serif;}
 .bcast-ticker-scroll{overflow:hidden;flex:1;}
 .bcast-ticker-inner{white-space:nowrap;animation:tickscroll 40s linear infinite;font-size:0.75rem;color:#99bbcc;letter-spacing:0.5px;}
 @keyframes tickscroll{0%{transform:translateX(100%);}100%{transform:translateX(-100%);}}
+#bgCanvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;}
 
-/* PW GATE */
+/* BROADCAST PW GATE */
 .pw-gate{position:fixed;inset:0;background:rgba(4,9,15,0.98);z-index:600;display:none;align-items:center;justify-content:center;}
 .pw-gate.open{display:flex;}
 .pw-box{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:36px;max-width:360px;width:90%;text-align:center;}
@@ -295,15 +452,13 @@ input,select,textarea{font-family:'Montserrat',sans-serif;}
 .pw-err{color:#fca5a5;font-size:0.8rem;margin-top:8px;display:none;}
 .pw-err.show{display:block;}
 .pw-change-hint{font-size:0.65rem;color:var(--dim);margin-top:10px;opacity:0.6;}
-
-/* LOCKOUT INDICATOR */
 .lockout-bar{width:100%;background:rgba(220,38,38,0.08);border:1px solid rgba(220,38,38,0.2);border-radius:6px;padding:8px 12px;margin-bottom:10px;font-size:0.72rem;color:#fca5a5;display:none;letter-spacing:1px;}
 .lockout-bar.show{display:block;}
 
-/* ══ ADMIN PORTAL ══ */
+/* ══ ADMIN GATE ══ */
 .admin-gate{position:fixed;inset:0;background:rgba(2,5,10,0.99);z-index:700;display:none;align-items:center;justify-content:center;}
 .admin-gate.open{display:flex;}
-.admin-box{background:rgba(5,12,22,0.98);border:1px solid rgba(245,158,11,0.3);border-radius:16px;padding:40px;max-width:400px;width:90%;text-align:center;box-shadow:0 0 60px rgba(245,158,11,0.08);}
+.admin-box{background:rgba(5,12,22,0.98);border:1px solid rgba(245,158,11,0.3);border-radius:16px;padding:40px;max-width:400px;width:90%;text-align:center;box-shadow:0 0 60px rgba(245,158,11,0.08);position:relative;}
 .admin-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);border-radius:16px 16px 0 0;}
 .admin-icon{font-size:2.8rem;margin-bottom:16px;animation:adminpulse 2s ease-in-out infinite;}
 @keyframes adminpulse{0%,100%{filter:drop-shadow(0 0 8px rgba(245,158,11,0.4));}50%{filter:drop-shadow(0 0 20px rgba(245,158,11,0.8));}}
@@ -323,29 +478,29 @@ input,select,textarea{font-family:'Montserrat',sans-serif;}
 .admin-dot{width:10px;height:10px;border-radius:50%;background:rgba(245,158,11,0.15);border:1px solid rgba(245,158,11,0.3);transition:all 0.3s;}
 .admin-dot.used{background:rgba(220,38,38,0.6);border-color:#ef4444;}
 
-/* ADMIN PANEL */
+/* ══ ADMIN PANEL ══ */
 .admin-panel{position:fixed;inset:0;background:rgba(2,5,10,0.98);z-index:680;display:none;flex-direction:column;overflow-y:auto;}
 .admin-panel.open{display:flex;}
 .admin-panel-header{background:rgba(4,9,15,0.99);border-bottom:1px solid rgba(245,158,11,0.2);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}
 .admin-panel-logo{font-family:'Oswald',sans-serif;font-size:1rem;letter-spacing:3px;color:var(--gold);}
 .admin-panel-close{background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.25);color:var(--gold);padding:8px 16px;border-radius:5px;font-family:'Oswald',sans-serif;letter-spacing:2px;font-size:0.78rem;}
 .admin-panel-close:hover{background:rgba(245,158,11,0.2);}
-.admin-panel-body{flex:1;padding:28px;max-width:900px;margin:0 auto;width:100%;}
+.admin-panel-body{flex:1;padding:28px;max-width:960px;margin:0 auto;width:100%;}
 .admin-section{background:rgba(10,22,40,0.7);border:1px solid rgba(245,158,11,0.12);border-radius:12px;padding:22px;margin-bottom:20px;}
 .admin-section-title{font-family:'Oswald',sans-serif;font-size:0.78rem;letter-spacing:4px;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
 .admin-section-title::after{content:'';flex:1;height:1px;background:rgba(245,158,11,0.12);}
 .admin-stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:16px;}
 .admin-stat{background:rgba(0,0,0,0.3);border:1px solid rgba(245,158,11,0.08);border-radius:8px;padding:14px;text-align:center;}
 .admin-stat-lbl{font-size:0.6rem;color:var(--dim);letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}
-.admin-stat-val{font-family:'Oswald',sans-serif;font-size:1.5rem;font-weight:700;color:var(--gold);}
+.admin-stat-val{font-family:'Oswald',sans-serif;font-size:1.4rem;font-weight:700;color:var(--gold);}
 .admin-form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;}
 .admin-form-full{grid-column:1/-1;}
 .admin-lbl{font-size:0.62rem;letter-spacing:2px;text-transform:uppercase;color:var(--dim);margin-bottom:6px;display:block;}
-.admin-inp{width:100%;background:rgba(10,25,50,0.7);border:1px solid rgba(245,158,11,0.15);border-radius:5px;color:#fff;padding:10px 13px;font-size:0.88rem;outline:none;transition:border-color 0.2s;font-family:'Montserrat',sans-serif;}
+.admin-inp{width:100%;background:rgba(10,25,50,0.7);border:1px solid rgba(245,158,11,0.15);border-radius:5px;color:#fff;padding:10px 13px;font-size:0.88rem;outline:none;transition:border-color 0.2s;}
 .admin-inp:focus{border-color:var(--gold);}
-.admin-sel{width:100%;background:rgba(10,25,50,0.7);border:1px solid rgba(245,158,11,0.15);border-radius:5px;color:#fff;padding:10px 13px;font-size:0.88rem;outline:none;font-family:'Montserrat',sans-serif;}
+.admin-sel{width:100%;background:rgba(10,25,50,0.7);border:1px solid rgba(245,158,11,0.15);border-radius:5px;color:#fff;padding:10px 13px;font-size:0.88rem;outline:none;}
 .admin-sel option{background:#071018;}
-.admin-ta{width:100%;background:rgba(10,25,50,0.7);border:1px solid rgba(245,158,11,0.15);border-radius:5px;color:#fff;padding:10px 13px;font-size:0.88rem;outline:none;font-family:'Montserrat',sans-serif;resize:vertical;min-height:70px;}
+.admin-ta{width:100%;background:rgba(10,25,50,0.7);border:1px solid rgba(245,158,11,0.15);border-radius:5px;color:#fff;padding:10px 13px;font-size:0.88rem;outline:none;resize:vertical;min-height:70px;}
 .admin-btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold2));border:none;color:#04090f;padding:10px 22px;border-radius:5px;font-family:'Oswald',sans-serif;letter-spacing:3px;font-size:0.88rem;font-weight:700;transition:var(--transition);}
 .admin-btn-gold:hover{transform:translateY(-1px);box-shadow:var(--glow-gold);}
 .admin-btn-red{background:rgba(220,38,38,0.15);border:1px solid rgba(220,38,38,0.3);color:#fca5a5;padding:10px 18px;border-radius:5px;font-family:'Oswald',sans-serif;letter-spacing:2px;font-size:0.85rem;transition:var(--transition);}
@@ -361,84 +516,11 @@ input,select,textarea{font-family:'Montserrat',sans-serif;}
 .admin-del-btn:hover{background:rgba(220,38,38,0.25);}
 .admin-msg{font-size:0.75rem;color:#86efac;margin-top:8px;display:none;letter-spacing:1px;}
 .admin-msg.show{display:block;}
-.admin-pw-section{border-color:rgba(220,38,38,0.2);}
 .admin-badge{display:inline-flex;align-items:center;gap:5px;background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.2);border-radius:4px;padding:3px 10px;font-family:'Oswald',sans-serif;font-size:0.65rem;letter-spacing:2px;color:var(--gold);}
 
-/* VIDEO GALLERY */
-.video-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:18px;}
-.video-card{background:var(--card);border:1px solid rgba(66,165,245,0.1);border-radius:var(--radius);overflow:hidden;transition:var(--transition);}
-.video-card:hover{transform:translateY(-4px);box-shadow:0 10px 30px rgba(0,0,0,0.4),0 0 0 1px rgba(66,165,245,0.2);}
-.video-thumb{width:100%;aspect-ratio:16/9;background:#071018;position:relative;overflow:hidden;cursor:pointer;}
-.video-thumb img{width:100%;height:100%;object-fit:cover;transition:transform 0.3s;}
-.video-card:hover .video-thumb img{transform:scale(1.04);}
-.video-thumb-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--dim);background:linear-gradient(135deg,#071018,#0a1628);}
-.video-play-overlay{position:absolute;inset:0;background:rgba(0,0,0,0.3);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity 0.2s;}
-.video-thumb:hover .video-play-overlay{opacity:1;}
-.play-circle{width:58px;height:58px;border-radius:50%;background:rgba(245,158,11,0.9);display:flex;align-items:center;justify-content:center;font-size:1.3rem;padding-left:4px;}
-.video-body{padding:14px 16px;}
-.video-tag-row{display:flex;align-items:center;gap:8px;margin-bottom:7px;}
-.video-tag{font-family:'Oswald',sans-serif;font-size:0.62rem;letter-spacing:2px;padding:2px 8px;border-radius:3px;}
-.tag-live{background:rgba(220,38,38,0.15);color:#fca5a5;border:1px solid rgba(220,38,38,0.25);}
-.tag-report{background:rgba(66,165,245,0.12);color:var(--sky);border:1px solid rgba(66,165,245,0.2);}
-.tag-clip{background:rgba(245,158,11,0.1);color:var(--gold);border:1px solid rgba(245,158,11,0.2);}
-.tag-upload{background:rgba(74,222,128,0.1);color:#86efac;border:1px solid rgba(74,222,128,0.2);}
-.video-date{font-size:0.62rem;color:var(--dim);margin-left:auto;}
-.video-title{font-family:'Oswald',sans-serif;font-size:1.05rem;color:#fff;margin-bottom:5px;}
-.video-desc{font-size:0.76rem;color:var(--dim);font-weight:300;line-height:1.5;margin-bottom:12px;}
-.video-actions{display:flex;gap:8px;}
-.v-act-btn{flex:1;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);color:var(--dim);border-radius:5px;padding:7px;font-family:'Oswald',sans-serif;letter-spacing:1px;font-size:0.7rem;transition:var(--transition);}
-.v-act-btn:hover{color:#fff;border-color:rgba(255,255,255,0.15);}
-.v-act-btn.del:hover{color:#fca5a5;border-color:rgba(220,38,38,0.3);}
-.add-video-btn{background:linear-gradient(135deg,var(--gold),var(--gold2));border:none;color:#04090f;padding:11px 22px;border-radius:6px;font-family:'Oswald',sans-serif;font-weight:700;letter-spacing:3px;font-size:0.9rem;transition:var(--transition);box-shadow:0 4px 15px rgba(245,158,11,0.25);}
-.add-video-btn:hover{transform:translateY(-2px);box-shadow:0 6px 22px rgba(245,158,11,0.4);}
-.video-form-wrap{background:var(--card);border:1px solid var(--border-gold);border-radius:var(--radius);padding:22px 26px;margin-bottom:20px;display:none;animation:pagein 0.3s ease;}
-.video-form-wrap.open{display:block;}
-.form-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
-@media(max-width:600px){.form-grid-2{grid-template-columns:1fr;}}
-.fg-full{grid-column:1/-1;}
-.form-lbl{font-size:0.63rem;letter-spacing:2px;text-transform:uppercase;color:var(--dim);margin-bottom:6px;display:block;}
-.form-inp,.form-sel,.form-ta{width:100%;background:rgba(10,25,50,0.6);border:1px solid var(--border);border-radius:5px;color:#fff;padding:10px 13px;font-size:0.88rem;outline:none;transition:border-color 0.2s;font-family:'Montserrat',sans-serif;}
-.form-inp:focus,.form-sel:focus,.form-ta:focus{border-color:var(--sky);}
-.form-sel option{background:#071018;}
-.form-ta{resize:vertical;min-height:70px;}
-.form-actions-row{display:flex;gap:10px;margin-top:14px;}
-.form-save-btn{background:var(--blue2);border:none;color:#fff;padding:10px 22px;border-radius:5px;font-family:'Oswald',sans-serif;letter-spacing:3px;font-size:0.9rem;transition:var(--transition);}
-.form-save-btn:hover{background:var(--blue);}
-.form-cancel-btn{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);color:var(--dim);padding:10px 18px;border-radius:5px;font-family:'Oswald',sans-serif;letter-spacing:2px;font-size:0.85rem;transition:var(--transition);}
-.form-cancel-btn:hover{color:#fff;}
-.video-empty{text-align:center;padding:60px 20px;border:2px dashed rgba(66,165,245,0.12);border-radius:12px;display:none;}
-.video-empty.show{display:block;}
-.video-empty-icon{font-size:3rem;margin-bottom:12px;}
-.video-empty-t{font-family:'Oswald',sans-serif;font-size:1.2rem;letter-spacing:3px;color:rgba(255,255,255,0.2);margin-bottom:8px;}
-.video-empty-s{font-size:0.78rem;color:var(--dim);}
-
-/* VIDEO MODAL */
-.video-modal{position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:400;display:none;align-items:center;justify-content:center;padding:20px;}
-.video-modal.open{display:flex;}
-.video-modal-inner{background:#04090f;border:1px solid var(--border);border-radius:12px;max-width:900px;width:100%;overflow:hidden;position:relative;}
-.video-modal-close{position:absolute;top:12px;right:14px;background:rgba(255,255,255,0.07);border:none;color:#fff;width:32px;height:32px;border-radius:50%;font-size:1rem;z-index:2;transition:var(--transition);}
-.video-modal-close:hover{background:rgba(220,38,38,0.4);}
-.video-modal-frame{width:100%;aspect-ratio:16/9;}
-.video-modal-frame iframe,.video-modal-frame video{width:100%;height:100%;border:none;display:block;}
-
-/* NEWS */
-.news-page{padding:20px 24px;max-width:1400px;margin:0 auto;}
-.news-grid{display:grid;grid-template-columns:2fr 1fr;gap:20px;}
-@media(max-width:800px){.news-grid{grid-template-columns:1fr;}}
-.news-feed{display:flex;flex-direction:column;gap:14px;}
-.news-card{background:var(--card);border:1px solid rgba(66,165,245,0.1);border-radius:var(--radius);padding:18px 20px;transition:var(--transition);display:flex;gap:16px;align-items:flex-start;}
-.news-card:hover{border-color:rgba(66,165,245,0.25);transform:translateX(4px);}
-.news-cat-icon{font-size:1.8rem;flex-shrink:0;margin-top:2px;}
-.news-cat-tag{font-family:'Oswald',sans-serif;font-size:0.62rem;letter-spacing:3px;color:var(--sky);text-transform:uppercase;margin-bottom:5px;}
-.news-headline{font-family:'Oswald',sans-serif;font-size:1.05rem;font-weight:600;color:#fff;margin-bottom:6px;line-height:1.3;}
-.news-snippet{font-size:0.78rem;color:var(--dim);font-weight:300;line-height:1.6;margin-bottom:8px;}
-.news-meta{font-size:0.62rem;color:var(--dim);opacity:0.7;display:flex;gap:14px;}
-.news-sidebar{display:flex;flex-direction:column;gap:14px;}
-.trending-box{background:var(--card);border:1px solid var(--border-gold);border-radius:var(--radius);padding:16px;}
-.trending-item{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid rgba(66,165,245,0.07);align-items:flex-start;}
-.trending-item:last-child{border-bottom:none;}
-.trending-num{font-family:'Oswald',sans-serif;font-size:1.2rem;font-weight:700;color:rgba(66,165,245,0.3);min-width:24px;line-height:1.2;}
-.trending-text{font-size:0.78rem;color:var(--dim);font-weight:300;line-height:1.5;}
+/* LIVE SECTION IN ADMIN */
+.admin-live-section{background:rgba(220,38,38,0.05);border:1px solid rgba(220,38,38,0.25);border-radius:12px;padding:22px;margin-bottom:20px;}
+.admin-live-section .admin-section-title{color:#fca5a5;}
 
 /* TICKER */
 .site-ticker{background:rgba(4,9,15,0.98);border-top:1px solid rgba(66,165,245,0.12);height:34px;display:flex;align-items:center;overflow:hidden;flex-shrink:0;position:sticky;bottom:0;z-index:50;}
@@ -468,22 +550,24 @@ input,select,textarea{font-family:'Montserrat',sans-serif;}
   .main-nav{padding:0 16px;}
   .admin-stat-row{grid-template-columns:1fr 1fr;}
   .admin-form-row{grid-template-columns:1fr;}
+  .news-grid{grid-template-columns:1fr;}
+  .aq-hero{grid-template-columns:1fr;text-align:center;}
 }
-@media(max-width:500px){
+@media(max-width:600px){
+  .video-grid{grid-template-columns:1fr;}
   .forecast7{grid-template-columns:repeat(4,1fr);}
   .logo-name{font-size:1.1rem;}
   .logo-tagline{display:none;}
   .stats-grid{grid-template-columns:repeat(2,1fr);}
-  .broadcast-hero{padding:16px;}
   .admin-stat-row{grid-template-columns:1fr;}
+  .aq-details-grid{grid-template-columns:repeat(2,1fr);}
 }
+@keyframes admShake{0%,100%{transform:translateX(0);}20%{transform:translateX(-8px);}40%{transform:translateX(8px);}60%{transform:translateX(-5px);}80%{transform:translateX(5px);}}
 </style>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9155318945822003"
-     crossorigin="anonymous"></script>
 </head>
 <body>
 
-<!-- BG -->
+<!-- BG SCENE -->
 <div class="bg-scene">
   <div class="bg-grad"></div>
   <div class="bg-cloud" style="width:130%;height:160px;top:2%;animation-duration:80s;left:-15%;"></div>
@@ -502,14 +586,13 @@ input,select,textarea{font-family:'Montserrat',sans-serif;}
   <div class="loader-text">Loading Weather Data…</div>
 </div>
 
-<!-- ══ ADMIN GATE (hidden, triggered by 6 logo taps) ══ -->
+<!-- ══ ADMIN GATE (6-tap logo) ══ -->
 <div class="admin-gate" id="adminGate">
-  <div class="admin-box" style="position:relative;">
+  <div class="admin-box">
     <div class="admin-icon">🔐</div>
     <div class="admin-title">ADMIN PORTAL</div>
     <div class="admin-sub">SMOKEY'S WEATHER NETWORK · RESTRICTED ACCESS</div>
     <div class="admin-lockout" id="adminLockout"></div>
-    <!-- Attempt dots: 5 max -->
     <div class="admin-attempts-dots" id="adminDots">
       <div class="admin-dot" id="adot0"></div>
       <div class="admin-dot" id="adot1"></div>
@@ -520,14 +603,14 @@ input,select,textarea{font-family:'Montserrat',sans-serif;}
     <input type="password" class="admin-input" id="adminInput" placeholder="Enter admin code" inputmode="numeric" maxlength="20"/>
     <button class="admin-submit" onclick="checkAdminCode()">ACCESS PORTAL</button>
     <div class="admin-err" id="adminErr"></div>
-    <button class="admin-cancel" onclick="closeAdminGate()" style="margin-top:12px;">Cancel</button>
+    <button class="admin-cancel" onclick="closeAdminGate()" style="margin-top:14px;">Cancel</button>
   </div>
 </div>
 
 <!-- ══ ADMIN PANEL ══ -->
 <div class="admin-panel" id="adminPanel">
   <div class="admin-panel-header">
-    <div class="admin-panel-logo">⚙️ &nbsp;ADMIN PORTAL &nbsp;—&nbsp; SMOKEY'S WEATHER NETWORK &nbsp;<span class="admin-badge">🔐 SECURE</span></div>
+    <div class="admin-panel-logo">⚙️ &nbsp;ADMIN PORTAL — SMOKEY'S WEATHER NETWORK &nbsp;<span class="admin-badge">🔐 SECURE</span></div>
     <button class="admin-panel-close" onclick="closeAdminPanel()">✕ EXIT PORTAL</button>
   </div>
   <div class="admin-panel-body">
@@ -537,12 +620,22 @@ input,select,textarea{font-family:'Montserrat',sans-serif;}
       <div class="admin-section-title"><i class="fas fa-chart-bar"></i> Network Stats</div>
       <div class="admin-stat-row">
         <div class="admin-stat"><div class="admin-stat-lbl">Total Videos</div><div class="admin-stat-val" id="aStatVideos">0</div></div>
-        <div class="admin-stat"><div class="admin-stat-lbl">Current Location</div><div class="admin-stat-val" id="aStatCity" style="font-size:0.9rem;">—</div></div>
-        <div class="admin-stat"><div class="admin-stat-lbl">Broadcast PW</div><div class="admin-stat-val" id="aStatPw" style="font-size:0.9rem;letter-spacing:3px;">••••</div></div>
+        <div class="admin-stat"><div class="admin-stat-lbl">Current Location</div><div class="admin-stat-val" id="aStatCity" style="font-size:0.85rem;">—</div></div>
+        <div class="admin-stat"><div class="admin-stat-lbl">Broadcast PW</div><div class="admin-stat-val" style="font-size:0.9rem;letter-spacing:3px;">••••</div></div>
       </div>
     </div>
 
-    <!-- ADD VIDEO (admin bypass — no live option) -->
+    <!-- GO LIVE — ADMIN ONLY -->
+    <div class="admin-live-section">
+      <div class="admin-section-title"><i class="fas fa-satellite-dish"></i> Live Broadcast Studio</div>
+      <div style="font-size:0.78rem;color:var(--dim);margin-bottom:16px;font-weight:300;line-height:1.6;">Launch the live broadcast studio. Your camera feed will be composited with virtual weather backgrounds using real-time chroma key. Only you can go live.</div>
+      <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
+        <button class="go-live-btn" onclick="openPwGate()"><i class="fas fa-circle" style="color:#fff;font-size:0.7rem;"></i> GO LIVE</button>
+        <div style="font-size:0.72rem;color:var(--dim);">Uses your broadcast password to verify identity</div>
+      </div>
+    </div>
+
+    <!-- ADD VIDEO -->
     <div class="admin-section">
       <div class="admin-section-title"><i class="fas fa-plus-circle"></i> Add Video to Library</div>
       <div class="admin-form-row">
@@ -559,12 +652,12 @@ input,select,textarea{font-family:'Montserrat',sans-serif;}
           </select>
         </div>
         <div class="admin-form-full">
-          <label class="admin-lbl">YouTube / Video URL</label>
+          <label class="admin-lbl">YouTube URL</label>
           <input class="admin-inp" id="aVURL" placeholder="https://youtube.com/watch?v=..."/>
         </div>
         <div class="admin-form-full">
           <label class="admin-lbl">Or Upload Video File</label>
-          <input type="file" class="admin-inp" id="aVFile" accept="video/*" style="padding:8px;"/>
+          <input type="file" class="admin-inp" id="aVFile" accept="video/*" style="padding:8px;color:var(--dim);"/>
         </div>
         <div class="admin-form-full">
           <label class="admin-lbl">Description</label>
@@ -573,7 +666,7 @@ input,select,textarea{font-family:'Montserrat',sans-serif;}
       </div>
       <div class="admin-actions-row">
         <button class="admin-btn-gold" onclick="adminSaveVideo()"><i class="fas fa-save"></i> SAVE VIDEO</button>
-        <button class="admin-btn-blue" onclick="adminClearForm()">CLEAR FORM</button>
+        <button class="admin-btn-blue" onclick="adminClearForm()">CLEAR</button>
       </div>
       <div class="admin-msg" id="aVideoMsg">✓ Video added to library!</div>
     </div>
@@ -587,12 +680,12 @@ input,select,textarea{font-family:'Montserrat',sans-serif;}
     </div>
 
     <!-- CHANGE BROADCAST PW -->
-    <div class="admin-section admin-pw-section">
+    <div class="admin-section" style="border-color:rgba(220,38,38,0.2);">
       <div class="admin-section-title" style="color:#fca5a5;"><i class="fas fa-key"></i> Broadcast Password</div>
       <div style="font-size:0.78rem;color:var(--dim);margin-bottom:14px;font-weight:300;">Change the password used to access the Go Live broadcast studio.</div>
       <div class="admin-form-row">
         <div>
-          <label class="admin-lbl">New Broadcast Password</label>
+          <label class="admin-lbl">New Password</label>
           <input type="password" class="admin-inp" id="aNewPw" placeholder="Min 4 characters"/>
         </div>
         <div>
@@ -630,11 +723,11 @@ input,select,textarea{font-family:'Montserrat',sans-serif;}
     <button class="pw-submit" onclick="checkPassword()">ENTER STUDIO</button>
     <div class="pw-err" id="pwErr">Incorrect password. Try again.</div>
     <button class="pw-cancel" onclick="closePwGate()">Cancel</button>
-    <div class="pw-change-hint">Default password: <strong>smokey123</strong> — change in Admin Portal or Broadcast Settings</div>
+    <div class="pw-change-hint">Default password: <strong>smokey123</strong> — change in Admin Portal</div>
   </div>
 </div>
 
-<!-- VIDEO MODAL -->
+<!-- VIDEO PLAYBACK MODAL -->
 <div class="video-modal" id="videoModal">
   <div class="video-modal-inner">
     <button class="video-modal-close" onclick="closeVideoModal()">✕</button>
@@ -642,7 +735,7 @@ input,select,textarea{font-family:'Montserrat',sans-serif;}
   </div>
 </div>
 
-<!-- BROADCAST MODAL -->
+<!-- BROADCAST STUDIO MODAL -->
 <div class="broadcast-modal" id="broadcastModal">
   <div class="bcast-header">
     <div class="bcast-logo">Smokey's <span>Weather Network</span> — <span style="color:#ef4444;">LIVE BROADCAST</span></div>
@@ -653,6 +746,7 @@ input,select,textarea{font-family:'Montserrat',sans-serif;}
   </div>
   <div class="bcast-viewport">
     <video id="bcastVideo" class="bcast-video-hidden" autoplay playsinline muted></video>
+    <canvas id="bgCanvas"></canvas>
     <canvas id="bcastCanvas" class="bcast-canvas"></canvas>
     <div class="bcast-overlay-top">
       <div class="bcast-banner">
@@ -697,7 +791,6 @@ input,select,textarea{font-family:'Montserrat',sans-serif;}
         <div id="pwChangeMsg" style="font-size:0.7rem;color:#86efac;margin-top:6px;display:none;">✓ Password updated!</div>
       </div>
     </div>
-    <canvas id="bgCanvas" style="position:absolute;inset:0;width:100%;height:100%;z-index:0;"></canvas>
   </div>
   <div class="bcast-ticker-bar">
     <div class="bcast-ticker-lbl">⚡ SWN</div>
@@ -707,13 +800,12 @@ input,select,textarea{font-family:'Montserrat',sans-serif;}
   </div>
 </div>
 
-<!-- MAIN SITE -->
+<!-- ══ MAIN SITE ══ -->
 <div style="display:flex;flex-direction:column;min-height:100vh;position:relative;z-index:1;">
 
 <header class="site-header">
   <div class="header-top">
     <div class="logo">
-      <!-- Logo mark: click 6x fast to open admin portal -->
       <div class="logo-mark" id="logoMark" onclick="handleLogoTap()">🌩️</div>
       <div class="logo-text-wrap">
         <div class="logo-name">Smokey's <span>Weather</span> Network</div>
@@ -819,7 +911,7 @@ input,select,textarea{font-family:'Montserrat',sans-serif;}
         <div class="prog" style="margin-top:10px;"><div class="prog-fill prog-teal" id="wWindBar" style="width:15%;"></div></div>
       </div>
       <div class="widget" style="background:rgba(10,30,15,0.6);border-color:rgba(22,163,74,0.2);">
-        <div class="widget-title" style="color:var(--dim);"><i class="fas fa-leaf"></i> Air Quality</div>
+        <div class="widget-title"><i class="fas fa-leaf"></i> Air Quality</div>
         <div class="aqi-num" id="wAQI" style="color:#4ade80;">--</div>
         <div class="aqi-label aqi-good" id="wAQILabel">Loading…</div>
         <div class="prog" style="margin-top:12px;"><div class="prog-fill" id="wAQIBar" style="width:20%;background:linear-gradient(90deg,#16a34a,#4ade80);"></div></div>
@@ -921,7 +1013,6 @@ input,select,textarea{font-family:'Montserrat',sans-serif;}
       <div>
         <div style="font-family:'Oswald',sans-serif;font-size:1.4rem;font-weight:600;color:#fff;margin-bottom:4px;" id="aqStatus">Search a location</div>
         <div style="font-size:0.8rem;color:var(--dim);font-weight:300;line-height:1.6;" id="aqDesc">Air quality information will appear here once you search for a location.</div>
-        <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap;" id="aqBadges"></div>
       </div>
     </div>
     <div class="aq-details-grid">
@@ -935,18 +1026,17 @@ input,select,textarea{font-family:'Montserrat',sans-serif;}
   </div>
 </div>
 
-<!-- VIDEOS -->
+<!-- VIDEOS — PUBLIC VIEW (no upload, no go live) -->
 <div class="page" id="page-videos">
   <div class="video-page">
-
-    <div style="margin-bottom:16px;">
-      <div class="section-head"><i class="fas fa-film"></i> Video Library</div>
+    <div class="video-page-header">
+      <div class="video-page-title"><i class="fas fa-film"></i> Video Library</div>
     </div>
     <div class="video-grid" id="videoGrid"></div>
     <div class="video-empty" id="videoEmpty">
       <div class="video-empty-icon">📹</div>
       <div class="video-empty-t">No Videos Yet</div>
-      <div class="video-empty-s">Click "Add Video" to post your first forecast or go live to start broadcasting</div>
+      <div class="video-empty-s">Smokey's first broadcast is coming soon. Check back later!</div>
     </div>
   </div>
 </div>
@@ -965,18 +1055,12 @@ input,select,textarea{font-family:'Montserrat',sans-serif;}
         <div class="widget">
           <div class="widget-title"><i class="fas fa-rss"></i> Subscribe</div>
           <div style="font-size:0.78rem;color:var(--dim);margin-bottom:12px;font-weight:300;line-height:1.6;">Get Smokey's Weather Network alerts and updates delivered to you.</div>
-          <input class="form-inp" placeholder="Your email address…" style="margin-bottom:8px;"/>
+          <input style="width:100%;background:rgba(10,25,50,0.6);border:1px solid var(--border);border-radius:5px;color:#fff;padding:10px 13px;font-size:0.88rem;outline:none;margin-bottom:8px;" placeholder="Your email address…"/>
           <button style="width:100%;background:var(--blue2);border:none;color:#fff;padding:10px;border-radius:5px;font-family:'Oswald',sans-serif;letter-spacing:3px;font-size:0.85rem;">SUBSCRIBE</button>
         </div>
       </div>
     </div>
   </div>
-</div>
-
-<!-- AD UNIT: Bottom of every page -->
-<div style="text-align:center;padding:10px 24px;background:rgba(4,9,15,0.9);border-top:1px solid rgba(66,165,245,0.1);">
-  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9155318945822003" data-ad-format="auto" data-full-width-responsive="true"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>
 
 <!-- TICKER -->
@@ -998,8 +1082,7 @@ input,select,textarea{font-family:'Montserrat',sans-serif;}
 (function(){
   const sf=document.getElementById('starfield');
   for(let i=0;i<120;i++){
-    const s=document.createElement('div');
-    const sz=Math.random()*2+0.4;
+    const s=document.createElement('div'),sz=Math.random()*2+0.4;
     s.className='star';
     s.style.cssText=`width:${sz}px;height:${sz}px;top:${Math.random()*100}%;left:${Math.random()*100}%;--d:${(Math.random()*4+1).toFixed(1)}s;--lo:${(Math.random()*0.15+0.03).toFixed(2)};--hi:${(Math.random()*0.5+0.15).toFixed(2)};`;
     sf.appendChild(s);
@@ -1007,174 +1090,111 @@ input,select,textarea{font-family:'Montserrat',sans-serif;}
 })();
 
 // ── STATE ──
-let unit='F',wxData=null,currentCity='',currentLat=0,currentLon=0;
-let broadcastPw=localStorage.getItem('swn_pw')||'smokey123';
-let videos=JSON.parse(localStorage.getItem('swn_videos')||'[]');
-let chromaR=0,chromaG=255,chromaB=0,chromaThresh=60,chromaSmooth=10;
-let broadcastStream=null,broadcastActive=false,bgMode='radar';
-let animFrameId=null;
+let unit='F', wxData=null, currentCity='', currentLat=0, currentLon=0;
+let broadcastPw = localStorage.getItem('swn_pw') || 'smokey123';
+let videos = JSON.parse(localStorage.getItem('swn_videos') || '[]');
+let chromaR=0, chromaG=255, chromaB=0, chromaThresh=60, chromaSmooth=10;
+let broadcastStream=null, broadcastActive=false, bgMode='radar';
+let animFrameId=null, bgAnim=0;
 
 // ══════════════════════════════════════
-//   ADMIN PORTAL SECURITY SYSTEM
+//   ADMIN SECURITY SYSTEM
 // ══════════════════════════════════════
+// Code stored as char codes — not plain text
+const _AC = [49,56,48,48,49,57,57,55,53,56,52,56];
+const getAdminCode = () => _AC.map(c=>String.fromCharCode(c)).join('');
 
-// The admin code — obfuscated so it's not plaintext-searchable
-// Stored as an array of character codes, joined at runtime
-const _AC=[49,56,48,48,49,57,57,55,53,56,52,56]; // "180019975848"
-const getAdminCode=()=>_AC.map(c=>String.fromCharCode(c)).join('');
-
-// Security state stored in sessionStorage (not localStorage, so it resets on tab close)
-const SEC_KEY='_swn_sec';
-function getSecState(){
-  try{return JSON.parse(sessionStorage.getItem(SEC_KEY)||'{}');}catch{return{};}
-}
+const SEC_KEY = '_swn_sec';
+function getSecState(){try{return JSON.parse(sessionStorage.getItem(SEC_KEY)||'{}');}catch{return{};}}
 function setSecState(s){sessionStorage.setItem(SEC_KEY,JSON.stringify(s));}
+const MAX_ATTEMPTS = 5;
+const LOCKOUT_MS = 10*60*1000;
 
-// Max 5 attempts, then 10-minute lockout
-const MAX_ATTEMPTS=5;
-const LOCKOUT_MS=10*60*1000; // 10 minutes
-
-// Logo tap tracking — 6 taps within 3 seconds
-let logoTapCount=0,logoTapTimer=null;
-
+// Logo tap: 6 taps in 3s opens admin
+let logoTapCount=0, logoTapTimer=null;
 function handleLogoTap(){
-  // Visual feedback
   const mark=document.getElementById('logoMark');
   mark.classList.remove('tap-active');
-  void mark.offsetWidth; // reflow
+  void mark.offsetWidth;
   mark.classList.add('tap-active');
   setTimeout(()=>mark.classList.remove('tap-active'),300);
-
   logoTapCount++;
   if(logoTapTimer)clearTimeout(logoTapTimer);
-
-  if(logoTapCount>=6){
-    logoTapCount=0;
-    openAdminGate();
-    return;
-  }
+  if(logoTapCount>=6){logoTapCount=0;openAdminGate();return;}
   logoTapTimer=setTimeout(()=>{logoTapCount=0;},3000);
 }
 
 function openAdminGate(){
-  const sec=getSecState();
-  const now=Date.now();
-  // Check lockout
-  if(sec.lockedUntil&&now<sec.lockedUntil){
-    const rem=Math.ceil((sec.lockedUntil-now)/1000);
-    showAdminLockout(rem);
-  }else{
-    if(sec.lockedUntil&&now>=sec.lockedUntil){
-      // Lockout expired, reset attempts
-      setSecState({attempts:0});
-    }
-    document.getElementById('adminGate').classList.add('open');
-    document.getElementById('adminInput').value='';
-    document.getElementById('adminErr').classList.remove('show');
-    document.getElementById('adminLockout').classList.remove('show');
-    updateAdminDots();
-    setTimeout(()=>document.getElementById('adminInput').focus(),200);
-  }
+  const sec=getSecState(), now=Date.now();
+  if(sec.lockedUntil&&now<sec.lockedUntil){showAdminLockout(Math.ceil((sec.lockedUntil-now)/1000));return;}
+  if(sec.lockedUntil&&now>=sec.lockedUntil)setSecState({attempts:0});
+  document.getElementById('adminGate').classList.add('open');
+  document.getElementById('adminInput').value='';
+  document.getElementById('adminInput').disabled=false;
+  document.getElementById('adminErr').classList.remove('show');
+  document.getElementById('adminLockout').classList.remove('show');
+  updateAdminDots();
+  setTimeout(()=>document.getElementById('adminInput').focus(),200);
 }
 
-function showAdminLockout(remainingSecs){
-  const mins=Math.floor(remainingSecs/60);
-  const secs=remainingSecs%60;
+function showAdminLockout(secs){
   document.getElementById('adminGate').classList.add('open');
   document.getElementById('adminInput').disabled=true;
   document.getElementById('adminInput').value='';
   const lockEl=document.getElementById('adminLockout');
-  lockEl.textContent=`⛔ Too many failed attempts. Locked for ${mins}:${String(secs).padStart(2,'0')}`;
-  lockEl.classList.add('show');
+  const fmt=r=>`⛔ Too many attempts. Locked for ${Math.floor(r/60)}:${String(r%60).padStart(2,'0')}`;
+  lockEl.textContent=fmt(secs);lockEl.classList.add('show');
   document.getElementById('adminErr').classList.remove('show');
-  // Countdown
   if(window._adminLockTimer)clearInterval(window._adminLockTimer);
   window._adminLockTimer=setInterval(()=>{
-    const sec2=getSecState();
-    const rem=Math.max(0,Math.ceil((sec2.lockedUntil-Date.now())/1000));
-    if(rem<=0){
-      clearInterval(window._adminLockTimer);
-      setSecState({attempts:0});
-      lockEl.classList.remove('show');
-      document.getElementById('adminInput').disabled=false;
-      updateAdminDots();
-      lockEl.textContent='';
-    }else{
-      const m=Math.floor(rem/60),s=rem%60;
-      lockEl.textContent=`⛔ Too many failed attempts. Locked for ${m}:${String(s).padStart(2,'0')}`;
-    }
+    const sec2=getSecState(),rem=Math.max(0,Math.ceil((sec2.lockedUntil-Date.now())/1000));
+    if(rem<=0){clearInterval(window._adminLockTimer);setSecState({attempts:0});lockEl.classList.remove('show');document.getElementById('adminInput').disabled=false;updateAdminDots();}
+    else lockEl.textContent=fmt(rem);
   },1000);
 }
 
 function updateAdminDots(){
-  const sec=getSecState();
-  const attempts=sec.attempts||0;
-  for(let i=0;i<5;i++){
-    const dot=document.getElementById('adot'+i);
-    dot.classList.toggle('used',i<attempts);
-  }
+  const attempts=getSecState().attempts||0;
+  for(let i=0;i<5;i++)document.getElementById('adot'+i).classList.toggle('used',i<attempts);
 }
 
 function checkAdminCode(){
-  const sec=getSecState();
-  const now=Date.now();
-  // Lockout check
+  const sec=getSecState(),now=Date.now();
   if(sec.lockedUntil&&now<sec.lockedUntil){showAdminLockout(Math.ceil((sec.lockedUntil-now)/1000));return;}
   const val=document.getElementById('adminInput').value.trim();
   if(val===getAdminCode()){
-    // SUCCESS
     setSecState({attempts:0});
     document.getElementById('adminInput').value='';
     document.getElementById('adminGate').classList.remove('open');
     openAdminPanel();
-  }else{
-    // FAILED
+  } else {
     const attempts=(sec.attempts||0)+1;
     if(attempts>=MAX_ATTEMPTS){
       setSecState({attempts:MAX_ATTEMPTS,lockedUntil:now+LOCKOUT_MS});
-      updateAdminDots();
-      showAdminLockout(Math.ceil(LOCKOUT_MS/1000));
-    }else{
-      setSecState({attempts});
-      updateAdminDots();
+      updateAdminDots();showAdminLockout(Math.ceil(LOCKOUT_MS/1000));
+    } else {
+      setSecState({attempts});updateAdminDots();
       const errEl=document.getElementById('adminErr');
       errEl.textContent=`Incorrect code. ${MAX_ATTEMPTS-attempts} attempt${MAX_ATTEMPTS-attempts!==1?'s':''} remaining.`;
       errEl.classList.add('show');
       document.getElementById('adminInput').value='';
-      // Shake animation
       const inp=document.getElementById('adminInput');
-      inp.style.animation='none';void inp.offsetWidth;
-      inp.style.animation='admShake 0.4s ease';
+      inp.style.animation='none';void inp.offsetWidth;inp.style.animation='admShake 0.4s ease';
     }
   }
 }
-
-function closeAdminGate(){
-  document.getElementById('adminGate').classList.remove('open');
-  document.getElementById('adminInput').value='';
-  if(window._adminLockTimer)clearInterval(window._adminLockTimer);
-}
-
+function closeAdminGate(){document.getElementById('adminGate').classList.remove('open');document.getElementById('adminInput').value='';if(window._adminLockTimer)clearInterval(window._adminLockTimer);}
 document.getElementById('adminInput').addEventListener('keydown',e=>{if(e.key==='Enter')checkAdminCode();});
 
 // ── ADMIN PANEL ──
-function openAdminPanel(){
-  document.getElementById('adminPanel').classList.add('open');
-  refreshAdminPanel();
-}
-
-function closeAdminPanel(){
-  document.getElementById('adminPanel').classList.remove('open');
-}
-
+function openAdminPanel(){document.getElementById('adminPanel').classList.add('open');refreshAdminPanel();}
+function closeAdminPanel(){document.getElementById('adminPanel').classList.remove('open');}
 function refreshAdminPanel(){
   document.getElementById('aStatVideos').textContent=videos.length;
   document.getElementById('aStatCity').textContent=currentCity||'—';
-  document.getElementById('aStatPw').textContent='••••';
   document.getElementById('aVCount').textContent=videos.length;
   renderAdminVideoList();
 }
-
 function renderAdminVideoList(){
   const el=document.getElementById('adminVideoList');
   if(!videos.length){el.innerHTML='<div style="font-size:0.8rem;color:var(--dim);padding:10px 0;">No videos in library.</div>';return;}
@@ -1188,7 +1208,6 @@ function renderAdminVideoList(){
       <button class="admin-del-btn" onclick="adminDeleteVideo(${i})"><i class="fas fa-trash"></i></button>
     </div>`).join('');
 }
-
 function adminSaveVideo(){
   const title=document.getElementById('aVTitle').value.trim();
   if(!title){alert('Please enter a title.');return;}
@@ -1198,8 +1217,7 @@ function adminSaveVideo(){
   const desc=document.getElementById('aVDesc').value.trim();
   const vid={title,cat,desc,date:new Date().toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})};
   const ytMatch=url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([\w-]{11})/);
-  if(ytMatch)vid.ytId=ytMatch[1];
-  else if(url)vid.url=url;
+  if(ytMatch)vid.ytId=ytMatch[1];else if(url)vid.url=url;
   if(file){
     const reader=new FileReader();
     reader.onload=e=>{vid.fileData=e.target.result;videos.unshift(vid);saveVideos();adminSaveSuccess();};
@@ -1207,115 +1225,64 @@ function adminSaveVideo(){
   }
   videos.unshift(vid);saveVideos();adminSaveSuccess();
 }
-
 function saveVideos(){localStorage.setItem('swn_videos',JSON.stringify(videos));renderVideos();refreshAdminPanel();}
-
 function adminSaveSuccess(){
   adminClearForm();
-  const msg=document.getElementById('aVideoMsg');
-  msg.classList.add('show');
-  setTimeout(()=>msg.classList.remove('show'),3000);
+  const msg=document.getElementById('aVideoMsg');msg.classList.add('show');setTimeout(()=>msg.classList.remove('show'),3000);
 }
-
-function adminClearForm(){
-  ['aVTitle','aVURL','aVDesc'].forEach(id=>document.getElementById(id).value='');
-  document.getElementById('aVFile').value='';
-}
-
-function adminDeleteVideo(i){
-  if(!confirm(`Delete "${videos[i].title}"?`))return;
-  videos.splice(i,1);saveVideos();
-}
-
-function adminClearAllVideos(){
-  if(!confirm('Delete ALL videos? This cannot be undone.'))return;
-  videos=[];saveVideos();
-}
-
+function adminClearForm(){['aVTitle','aVURL','aVDesc'].forEach(id=>document.getElementById(id).value='');document.getElementById('aVFile').value='';}
+function adminDeleteVideo(i){if(!confirm(`Delete "${videos[i].title}"?`))return;videos.splice(i,1);saveVideos();}
+function adminClearAllVideos(){if(!confirm('Delete ALL videos? This cannot be undone.'))return;videos=[];saveVideos();}
 function adminChangePw(){
-  const np=document.getElementById('aNewPw').value.trim();
-  const nc=document.getElementById('aNewPwConfirm').value.trim();
+  const np=document.getElementById('aNewPw').value.trim(),nc=document.getElementById('aNewPwConfirm').value.trim();
   if(!np||np.length<4){alert('Password must be at least 4 characters.');return;}
   if(np!==nc){alert('Passwords do not match.');return;}
   broadcastPw=np;localStorage.setItem('swn_pw',np);
   document.getElementById('aNewPw').value='';document.getElementById('aNewPwConfirm').value='';
-  document.getElementById('aStatPw').textContent='••••';
-  const msg=document.getElementById('aPwMsg');
-  msg.classList.add('show');setTimeout(()=>msg.classList.remove('show'),3000);
+  const msg=document.getElementById('aPwMsg');msg.classList.add('show');setTimeout(()=>msg.classList.remove('show'),3000);
 }
+function adminResetPw(){if(!confirm('Reset broadcast password to default "smokey123"?'))return;broadcastPw='smokey123';localStorage.setItem('swn_pw','smokey123');alert('Broadcast password reset to: smokey123');}
 
-function adminResetPw(){
-  if(!confirm('Reset broadcast password to default "smokey123"?'))return;
-  broadcastPw='smokey123';localStorage.setItem('swn_pw','smokey123');
-  alert('Broadcast password reset to: smokey123');
-}
-
-// ── BROADCAST PW GATE ──
-// Rate limiting: 5 attempts then 5-minute lockout
+// ── BROADCAST PW GATE (rate limited) ──
 const BCAST_SEC_KEY='_swn_bcast_sec';
 function getBcastSec(){try{return JSON.parse(sessionStorage.getItem(BCAST_SEC_KEY)||'{}');}catch{return{};}}
 function setBcastSec(s){sessionStorage.setItem(BCAST_SEC_KEY,JSON.stringify(s));}
 
 function openPwGate(){
-  const sec=getBcastSec();
-  const now=Date.now();
+  const sec=getBcastSec(),now=Date.now();
   if(sec.lockedUntil&&now<sec.lockedUntil){
-    const rem=Math.ceil((sec.lockedUntil-now)/1000);
     document.getElementById('pwGate').classList.add('open');
-    showBcastLockout(rem);
-    return;
+    showBcastLockout(Math.ceil((sec.lockedUntil-now)/1000));return;
   }
   document.getElementById('pwGate').classList.add('open');
   document.getElementById('pwInput').value='';
+  document.getElementById('pwInput').disabled=false;
   document.getElementById('pwErr').classList.remove('show');
   document.getElementById('bcastLockoutBar').classList.remove('show');
   setTimeout(()=>document.getElementById('pwInput').focus(),150);
 }
-
 function showBcastLockout(secs){
   const bar=document.getElementById('bcastLockoutBar');
-  const m=Math.floor(secs/60),s=secs%60;
-  bar.textContent=`⛔ Too many attempts. Try again in ${m}:${String(s).padStart(2,'0')}`;
-  bar.classList.add('show');
-  document.getElementById('pwInput').disabled=true;
+  const fmt=r=>`⛔ Too many attempts. Try again in ${Math.floor(r/60)}:${String(r%60).padStart(2,'0')}`;
+  bar.textContent=fmt(secs);bar.classList.add('show');document.getElementById('pwInput').disabled=true;
   if(window._bcastLockTimer)clearInterval(window._bcastLockTimer);
   window._bcastLockTimer=setInterval(()=>{
-    const sec2=getBcastSec();
-    const rem=Math.max(0,Math.ceil((sec2.lockedUntil-Date.now())/1000));
-    if(rem<=0){
-      clearInterval(window._bcastLockTimer);
-      setBcastSec({attempts:0});
-      bar.classList.remove('show');
-      document.getElementById('pwInput').disabled=false;
-    }else{
-      const mm=Math.floor(rem/60),ss=rem%60;
-      bar.textContent=`⛔ Too many attempts. Try again in ${mm}:${String(ss).padStart(2,'0')}`;
-    }
+    const sec2=getBcastSec(),rem=Math.max(0,Math.ceil((sec2.lockedUntil-Date.now())/1000));
+    if(rem<=0){clearInterval(window._bcastLockTimer);setBcastSec({attempts:0});bar.classList.remove('show');document.getElementById('pwInput').disabled=false;}
+    else bar.textContent=fmt(rem);
   },1000);
 }
-
-function closePwGate(){
-  document.getElementById('pwGate').classList.remove('open');
-  document.getElementById('pwInput').value='';
-  document.getElementById('pwErr').classList.remove('show');
-  if(window._bcastLockTimer)clearInterval(window._bcastLockTimer);
-}
-
+function closePwGate(){document.getElementById('pwGate').classList.remove('open');document.getElementById('pwInput').value='';document.getElementById('pwErr').classList.remove('show');if(window._bcastLockTimer)clearInterval(window._bcastLockTimer);}
 function checkPassword(){
-  const sec=getBcastSec();
-  const now=Date.now();
+  const sec=getBcastSec(),now=Date.now();
   if(sec.lockedUntil&&now<sec.lockedUntil){showBcastLockout(Math.ceil((sec.lockedUntil-now)/1000));return;}
   const val=document.getElementById('pwInput').value;
   if(val===broadcastPw){
-    setBcastSec({attempts:0});
-    closePwGate();
-    startBroadcast();
-  }else{
+    setBcastSec({attempts:0});closePwGate();startBroadcast();
+  } else {
     const attempts=(sec.attempts||0)+1;
-    if(attempts>=5){
-      setBcastSec({attempts:5,lockedUntil:now+5*60*1000});
-      showBcastLockout(300);
-    }else{
+    if(attempts>=5){setBcastSec({attempts:5,lockedUntil:now+5*60*1000});showBcastLockout(300);}
+    else{
       setBcastSec({attempts});
       document.getElementById('pwErr').textContent=`Incorrect password. ${5-attempts} attempt${5-attempts!==1?'s':''} remaining.`;
       document.getElementById('pwErr').classList.add('show');
@@ -1323,9 +1290,7 @@ function checkPassword(){
     }
   }
 }
-
 document.getElementById('pwInput').addEventListener('keydown',e=>{if(e.key==='Enter')checkPassword();});
-
 function changePassword(){
   const np=document.getElementById('newPwInput').value.trim();
   if(!np||np.length<4)return;
@@ -1336,51 +1301,28 @@ function changePassword(){
 }
 
 // ── WMO CODES ──
-const WMO={
-  0:['Clear Sky','☀️'],1:['Mainly Clear','🌤️'],2:['Partly Cloudy','⛅'],3:['Overcast','☁️'],
-  45:['Foggy','🌫️'],48:['Freezing Fog','🌫️'],
-  51:['Light Drizzle','🌦️'],53:['Drizzle','🌦️'],55:['Heavy Drizzle','🌧️'],
-  61:['Light Rain','🌧️'],63:['Rain','🌧️'],65:['Heavy Rain','🌧️'],
-  71:['Light Snow','🌨️'],73:['Snow','❄️'],75:['Heavy Snow','❄️'],77:['Snow Grains','🌨️'],
-  80:['Light Showers','🌦️'],81:['Showers','🌧️'],82:['Heavy Showers','⛈️'],
-  85:['Snow Showers','🌨️'],86:['Heavy Snow Showers','❄️'],
-  95:['Thunderstorm','⛈️'],96:['T-storm w/ Hail','⛈️'],99:['Severe Thunderstorm','🌪️']
-};
+const WMO={0:['Clear Sky','☀️'],1:['Mainly Clear','🌤️'],2:['Partly Cloudy','⛅'],3:['Overcast','☁️'],45:['Foggy','🌫️'],48:['Freezing Fog','🌫️'],51:['Light Drizzle','🌦️'],53:['Drizzle','🌦️'],55:['Heavy Drizzle','🌧️'],61:['Light Rain','🌧️'],63:['Rain','🌧️'],65:['Heavy Rain','🌧️'],71:['Light Snow','🌨️'],73:['Snow','❄️'],75:['Heavy Snow','❄️'],77:['Snow Grains','🌨️'],80:['Light Showers','🌦️'],81:['Showers','🌧️'],82:['Heavy Showers','⛈️'],85:['Snow Showers','🌨️'],86:['Heavy Snow Showers','❄️'],95:['Thunderstorm','⛈️'],96:['T-Storm w/ Hail','⛈️'],99:['Severe Thunderstorm','🌪️']};
 
 // ── CLOCK ──
-function updateClock(){
-  const n=new Date();
-  document.getElementById('clockTime').textContent=n.toLocaleTimeString('en-US',{hour12:true});
-  document.getElementById('clockDate').textContent=n.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});
-}
+function updateClock(){const n=new Date();document.getElementById('clockTime').textContent=n.toLocaleTimeString('en-US',{hour12:true});document.getElementById('clockDate').textContent=n.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});}
 updateClock();setInterval(updateClock,1000);
 
 // ── PAGE NAV ──
-function showPage(id,btn){
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
-  document.getElementById('page-'+id).classList.add('active');
-  btn.classList.add('active');
-}
+function showPage(id,btn){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));document.getElementById('page-'+id).classList.add('active');btn.classList.add('active');}
 
 // ── UNIT ──
-function setUnit(u){
-  unit=u;
-  document.getElementById('btnF').classList.toggle('on',u==='F');
-  document.getElementById('btnC').classList.toggle('on',u==='C');
-  if(wxData)renderWeather(wxData);
-}
+function setUnit(u){unit=u;document.getElementById('btnF').classList.toggle('on',u==='F');document.getElementById('btnC').classList.toggle('on',u==='C');if(wxData)renderWeather(wxData);}
 const toF=c=>(c*9/5)+32;
 const dT=c=>unit==='F'?Math.round(toF(c)):Math.round(c);
 const tStr=c=>`${dT(c)}°${unit}`;
 const windStr=v=>unit==='F'?`${Math.round(v)} mph`:`${Math.round(v*1.609)} km/h`;
-function wDir(deg){return['N','NNE','NE','ENE','E','ESE','SE','SSE','S','SSW','SW','WSW','W','WNW','NW','NNW'][Math.round(deg/22.5)%16];}
+function wDir(d){return['N','NNE','NE','ENE','E','ESE','SE','SSE','S','SSW','SW','WSW','W','WNW','NW','NNW'][Math.round(d/22.5)%16];}
 function fmtTime(iso){if(!iso)return'--:--';return new Date(iso).toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',hour12:true});}
-function fmtHour(iso){if(!iso)return'--';const d=new Date(iso);const h=d.getHours();return h===0?'12 AM':h<12?`${h} AM`:h===12?'12 PM':`${h-12} PM`;}
+function fmtHour(iso){if(!iso)return'--';const h=new Date(iso).getHours();return h===0?'12 AM':h<12?`${h} AM`:h===12?'12 PM':`${h-12} PM`;}
 
-// ── WEATHER EFFECTS ──
-function buildRain(n){const c=document.getElementById('rainWrap');c.innerHTML='';for(let i=0;i<n;i++){const d=document.createElement('div');const h=Math.random()*60+20;d.className='rdrop';d.style.cssText=`left:${Math.random()*100}%;top:${Math.random()*-80}px;height:${h}px;animation-duration:${(Math.random()*0.5+0.55).toFixed(2)}s;animation-delay:${(Math.random()*3).toFixed(2)}s;`;c.appendChild(d);}}
-function buildSnow(n){const c=document.getElementById('snowWrap');c.innerHTML='';for(let i=0;i<n;i++){const d=document.createElement('div');const sz=Math.random()*4+2;d.className='snowflake';d.style.cssText=`left:${Math.random()*100}%;top:${Math.random()*-40}px;width:${sz}px;height:${sz}px;animation-duration:${(Math.random()*5+4).toFixed(1)}s;animation-delay:${(Math.random()*6).toFixed(1)}s;`;c.appendChild(d);}}
+// ── WEATHER FX ──
+function buildRain(n){const c=document.getElementById('rainWrap');c.innerHTML='';for(let i=0;i<n;i++){const d=document.createElement('div'),h=Math.random()*60+20;d.className='rdrop';d.style.cssText=`left:${Math.random()*100}%;top:${Math.random()*-80}px;height:${h}px;animation-duration:${(Math.random()*0.5+0.55).toFixed(2)}s;animation-delay:${(Math.random()*3).toFixed(2)}s;`;c.appendChild(d);}}
+function buildSnow(n){const c=document.getElementById('snowWrap');c.innerHTML='';for(let i=0;i<n;i++){const d=document.createElement('div'),sz=Math.random()*4+2;d.className='snowflake';d.style.cssText=`left:${Math.random()*100}%;top:${Math.random()*-40}px;width:${sz}px;height:${sz}px;animation-duration:${(Math.random()*5+4).toFixed(1)}s;animation-delay:${(Math.random()*6).toFixed(1)}s;`;c.appendChild(d);}}
 function applyFX(code){
   const r=document.getElementById('rainWrap'),s=document.getElementById('snowWrap'),l=document.getElementById('lflash');
   r.style.opacity='0';s.style.opacity='0';clearInterval(window._li);
@@ -1401,12 +1343,12 @@ function updateSunArc(rISO,sISO){
 // ── AQI ──
 async function fetchAQI(lat,lon){
   try{
-    const url=`https://air-quality-api.open-meteo.com/v1/air-quality?latitude=${lat}&longitude=${lon}&current=pm2_5,pm10,carbon_monoxide,nitrogen_dioxide,ozone,uv_index,european_aqi&hourly=pm2_5`;
-    const res=await fetch(url);const data=await res.json();const c=data.current;
+    const res=await fetch(`https://air-quality-api.open-meteo.com/v1/air-quality?latitude=${lat}&longitude=${lon}&current=pm2_5,pm10,carbon_monoxide,nitrogen_dioxide,ozone,uv_index,european_aqi`);
+    const data=await res.json();const c=data.current;
     const aqi=Math.round(c.european_aqi||0);
     let col='#4ade80',cls='aqi-good',lbl='Good',desc='Air quality is satisfactory. Ideal conditions for outdoor activities.';
-    if(aqi>50){col='#facc15';cls='aqi-moderate';lbl='Moderate';desc='Air quality is acceptable. Some people sensitive to air pollution may notice effects.';}
-    if(aqi>100){col='#fb923c';cls='aqi-unhealthy';lbl='Unhealthy for Sensitive Groups';desc='Members of sensitive groups may experience health effects.';}
+    if(aqi>50){col='#facc15';cls='aqi-moderate';lbl='Moderate';desc='Air quality is acceptable. Sensitive groups may notice effects.';}
+    if(aqi>100){col='#fb923c';cls='aqi-unhealthy';lbl='Unhealthy for Sensitive Groups';desc='Sensitive groups may experience health effects.';}
     if(aqi>150){col='#ef4444';cls='aqi-bad';lbl='Unhealthy';desc='Everyone may experience health effects.';}
     document.getElementById('aqNum').textContent=aqi;
     document.getElementById('aqStatus').textContent=lbl;
@@ -1431,26 +1373,23 @@ async function fetchAQI(lat,lon){
 // ── ALERTS ──
 async function fetchAlerts(lat,lon){
   try{
-    const url=`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=weather_code&daily=weather_code,temperature_2m_max&timezone=auto&forecast_days=1`;
-    const res=await fetch(url);const d=await res.json();
-    const code=d.current.weather_code;const alerts=[];
+    const res=await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=weather_code&daily=weather_code,temperature_2m_max&timezone=auto&forecast_days=1`);
+    const d=await res.json();const code=d.current.weather_code;const alerts=[];
     if([95,96,99].includes(code))alerts.push({title:'Thunderstorm Warning',sev:'severe',area:'Your Area',body:'A thunderstorm warning is in effect. Dangerous lightning and strong winds expected. Seek shelter immediately.',eff:'Now',exp:'Until conditions improve'});
-    if(d.daily.temperature_2m_max[0]>38)alerts.push({title:'Extreme Heat Advisory',sev:'moderate',area:'Your Area',body:'Dangerous heat conditions expected. Stay hydrated, wear light clothing, and avoid prolonged sun exposure.',eff:'Today',exp:'This evening'});
+    if(d.daily.temperature_2m_max[0]>38)alerts.push({title:'Extreme Heat Advisory',sev:'moderate',area:'Your Area',body:'Dangerous heat conditions expected. Stay hydrated and avoid prolonged sun exposure.',eff:'Today',exp:'This evening'});
     if(d.daily.temperature_2m_max[0]<-15)alerts.push({title:'Wind Chill Warning',sev:'extreme',area:'Your Area',body:'Dangerously cold wind chill values expected. Frostbite can occur within minutes on exposed skin.',eff:'Now',exp:'Tomorrow morning'});
     if([71,73,75].includes(code))alerts.push({title:'Winter Storm Advisory',sev:'moderate',area:'Your Area',body:'Snow accumulations expected. Hazardous road conditions likely. Allow extra travel time.',eff:'Now',exp:'Until clearing'});
     renderAlerts(alerts);
   }catch(e){}
 }
-
 function renderAlerts(alerts){
   const badge=document.getElementById('alertBadge'),widget=document.getElementById('alertWidget'),container=document.getElementById('alertsContainer'),list=document.getElementById('alertList'),count=document.getElementById('alertCount');
-  if(alerts.length===0){
+  if(!alerts.length){
     badge.classList.remove('show');widget.classList.remove('show');
-    container.innerHTML='<div style="text-align:center;padding:50px;color:var(--dim);"><div style="font-size:2.5rem;margin-bottom:12px;">✅</div><div style="font-family:\'Oswald\',sans-serif;font-size:1.1rem;letter-spacing:3px;color:rgba(255,255,255,0.2);">NO ACTIVE ALERTS</div><div style="font-size:0.8rem;margin-top:8px;">No weather alerts for this location at this time</div></div>';
+    container.innerHTML='<div style="text-align:center;padding:50px;color:var(--dim);"><div style="font-size:2.5rem;margin-bottom:12px;">✅</div><div style="font-family:\'Oswald\',sans-serif;font-size:1.1rem;letter-spacing:3px;color:rgba(255,255,255,0.2);">NO ACTIVE ALERTS</div><div style="font-size:0.8rem;margin-top:8px;">No weather alerts for this location</div></div>';
     return;
   }
-  badge.classList.add('show');
-  document.getElementById('alertBadgeText').textContent=`${alerts.length} ALERT${alerts.length>1?'S':''}`;
+  badge.classList.add('show');document.getElementById('alertBadgeText').textContent=`${alerts.length} ALERT${alerts.length>1?'S':''}`;
   widget.classList.add('show');count.textContent=alerts.length;
   list.innerHTML=alerts.slice(0,3).map(a=>`<div class="alert-item"><i class="fas fa-circle-exclamation alert-icon-sm"></i><div>${a.title}</div></div>`).join('');
   container.innerHTML=alerts.map(a=>{
@@ -1470,7 +1409,7 @@ function buildTicker(city){
     `💧 Humidity ${c.relative_humidity_2m}% · 💨 Wind ${windStr(c.wind_speed_10m)} ${wDir(c.wind_direction_10m)} · 🔵 Pressure ${Math.round(c.surface_pressure)} hPa`,
     `📅 Tomorrow: High ${tStr(d.temperature_2m_max[1])} / Low ${tStr(d.temperature_2m_min[1])}`,
     `🌅 Sunrise ${fmtTime(d.sunrise[0])} · 🌇 Sunset ${fmtTime(d.sunset[0])} · ☀️ UV ${(c.uv_index||0).toFixed(1)}`,
-    `📡 Smokey's Weather Network · Live Data · Powered by Open-Meteo Global Model`,
+    `📡 Smokey's Weather Network · Live Data · Powered by Open-Meteo`,
   ];
   const sep='<span class="t-sep">◆</span>';
   document.getElementById('tickerText').innerHTML=items.join(sep)+sep+items.join(sep);
@@ -1487,8 +1426,8 @@ function renderWeather(data){
   document.getElementById('heroAttr').textContent='Live · Open-Meteo GFS + ERA5 Model · Updates every 15 min';
   document.getElementById('sHumidity').textContent=`${c.relative_humidity_2m}%`;
   document.getElementById('sWind').textContent=windStr(c.wind_speed_10m);
-  document.getElementById('sVis').textContent=unit==='F'?`${(c.visibility/1609.34).toFixed(1)}mi`:`${(c.visibility/1000).toFixed(1)}km`;
-  document.getElementById('sPressure').textContent=`${Math.round(c.surface_pressure)}hPa`;
+  document.getElementById('sVis').textContent=unit==='F'?`${(c.visibility/1609.34).toFixed(1)} mi`:`${(c.visibility/1000).toFixed(1)} km`;
+  document.getElementById('sPressure').textContent=`${Math.round(c.surface_pressure)} hPa`;
   document.getElementById('sDew').textContent=tStr(c.dew_point_2m);
   document.getElementById('sCloud').textContent=`${c.cloud_cover}%`;
   document.getElementById('sUV').textContent=(c.uv_index||0).toFixed(1);
@@ -1506,8 +1445,7 @@ function renderWeather(data){
   updateSunArc(d.sunrise[0],d.sunset[0]);
   render7Day(d,'forecast7');render7Day(d,'forecast7b');
   renderHourly(h,'hourlyScroll');renderHourly(h,'hourlyScroll2');
-  applyFX(c.weather_code);
-  buildTicker(currentCity);
+  applyFX(c.weather_code);buildTicker(currentCity);
   document.getElementById('bcastCity').textContent=`📍 ${currentCity}`;
   document.getElementById('bcastTemp').textContent=`${dT(c.temperature_2m)}°${unit} — ${lbl}`;
   document.getElementById('bcastCond').textContent=`Humidity ${c.relative_humidity_2m}% · Wind ${windStr(c.wind_speed_10m)} ${wDir(c.wind_direction_10m)}`;
@@ -1549,7 +1487,7 @@ async function fetchWeather(lat,lon,city,region){
   currentLat=lat;currentLon=lon;currentCity=city;
   try{
     const url=`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,apparent_temperature,relative_humidity_2m,dew_point_2m,precipitation,weather_code,cloud_cover,surface_pressure,wind_speed_10m,wind_direction_10m,wind_gusts_10m,visibility,uv_index&hourly=temperature_2m,weather_code,precipitation_probability&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_sum,sunrise,sunset&wind_speed_unit=mph&forecast_days=7&timezone=auto`;
-    const res=await fetch(url);if(!res.ok)throw new Error('Weather fetch failed');
+    const res=await fetch(url);if(!res.ok)throw new Error('Fetch failed');
     const data=await res.json();wxData=data;
     document.getElementById('heroCity').textContent=city;
     document.getElementById('heroRegion').textContent=region||'';
@@ -1557,7 +1495,6 @@ async function fetchWeather(lat,lon,city,region){
     await Promise.all([fetchAQI(lat,lon),fetchAlerts(lat,lon)]);
     document.getElementById('radarFrame').src=`https://embed.windy.com/embed2.html?lat=${lat}&lon=${lon}&detailLat=${lat}&detailLon=${lon}&width=100%&height=520&zoom=7&level=surface&overlay=rain&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=mph&metricTemp=%C2%B0F&radarRange=-1`;
     loadNews();
-    // Update admin panel if open
     if(document.getElementById('adminPanel').classList.contains('open'))refreshAdminPanel();
   }catch(e){
     document.getElementById('errMsg').textContent='Failed to load weather data. Please try again.';
@@ -1570,8 +1507,7 @@ async function doSearch(){
   document.getElementById('errMsg').classList.remove('show');
   try{
     const res=await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(val)}&count=1&language=en&format=json`);
-    const data=await res.json();
-    if(!data.results?.length)throw new Error('Not found');
+    const data=await res.json();if(!data.results?.length)throw new Error('Not found');
     const g=data.results[0];
     await fetchWeather(g.latitude,g.longitude,g.name,`${g.admin1||''} ${g.country_code||''}`.trim());
   }catch(e){
@@ -1580,7 +1516,6 @@ async function doSearch(){
     document.getElementById('errMsg').classList.add('show');
   }
 }
-
 function doLocate(){
   if(!navigator.geolocation){document.getElementById('errMsg').textContent='Geolocation not supported.';document.getElementById('errMsg').classList.add('show');return;}
   document.getElementById('siteLoader').classList.remove('gone');
@@ -1595,7 +1530,6 @@ function doLocate(){
     }catch{await fetchWeather(lat,lon,'Your Location','');}
   },()=>{document.getElementById('siteLoader').classList.add('gone');document.getElementById('errMsg').textContent='Location access denied. Search manually.';document.getElementById('errMsg').classList.add('show');});
 }
-
 document.getElementById('citySearch').addEventListener('keydown',e=>{if(e.key==='Enter')doSearch();});
 setInterval(()=>{if(currentLat&&currentLon)fetchWeather(currentLat,currentLon,currentCity,'');},15*60*1000);
 
@@ -1604,18 +1538,17 @@ const NEWS_STORIES=[
   {cat:'Severe Weather',icon:'⛈️',headline:'Historic Storm System Tracks Across Central Plains',snippet:'Meteorologists are tracking a powerful low-pressure system bringing severe thunderstorm and tornado threats to the central United States.',time:'2 hours ago',src:'SWN Staff'},
   {cat:'Climate',icon:'🌡️',headline:'Record High Temperatures Expected Across Southwest This Week',snippet:'A sprawling heat dome is expected to push temperatures to record levels across the Desert Southwest.',time:'4 hours ago',src:'SWN Staff'},
   {cat:'Winter Weather',icon:'❄️',headline:'Early Season Snow Event Possible for Northern Rockies',snippet:'A sharp cold front is set to deliver the first significant snowfall of the season to portions of Montana and Wyoming.',time:'6 hours ago',src:'SWN Staff'},
-  {cat:'Tropical',icon:'🌀',headline:'Tropical Disturbance in Atlantic Being Monitored by NHC',snippet:'The National Hurricane Center is monitoring a tropical disturbance in the central Atlantic Ocean with a moderate chance of development.',time:'8 hours ago',src:'SWN Staff'},
+  {cat:'Tropical',icon:'🌀',headline:'Tropical Disturbance in Atlantic Being Monitored by NHC',snippet:'The National Hurricane Center is monitoring a tropical disturbance in the central Atlantic with a moderate chance of development.',time:'8 hours ago',src:'SWN Staff'},
   {cat:'Forecast',icon:'🌤️',headline:'Weekend Outlook: Mostly Pleasant Conditions Expected Nationwide',snippet:'A tranquil weather pattern is setting up for much of the country heading into the weekend.',time:'12 hours ago',src:'SWN Staff'},
 ];
 const TRENDING=['Hurricane Season 2025 Forecast','Record Heat Wave Southwest','La Niña Winter Outlook','Tornado Alley Activity Tracker','Great Lakes Snow Belt Update'];
-
 function loadNews(){
-  document.getElementById('newsFeed').innerHTML=NEWS_STORIES.map(s=>`<div class="news-card"><div class="news-cat-icon">${s.icon}</div><div class="news-content"><div class="news-cat-tag">${s.cat}</div><div class="news-headline">${s.headline}</div><div class="news-snippet">${s.snippet}</div><div class="news-meta"><span><i class="fas fa-clock"></i> ${s.time}</span><span><i class="fas fa-user"></i> ${s.src}</span></div></div></div>`).join('');
+  document.getElementById('newsFeed').innerHTML=NEWS_STORIES.map(s=>`<div class="news-card"><div class="news-cat-icon">${s.icon}</div><div><div class="news-cat-tag">${s.cat}</div><div class="news-headline">${s.headline}</div><div class="news-snippet">${s.snippet}</div><div class="news-meta"><span><i class="fas fa-clock"></i> ${s.time}</span><span><i class="fas fa-user"></i> ${s.src}</span></div></div></div>`).join('');
   document.getElementById('trendingList').innerHTML=TRENDING.map((t,i)=>`<div class="trending-item"><div class="trending-num">${i+1}</div><div class="trending-text">${t}</div></div>`).join('');
 }
 loadNews();
 
-// ── VIDEOS ──
+// ── VIDEOS (public read-only) ──
 function renderVideos(){
   const grid=document.getElementById('videoGrid'),empty=document.getElementById('videoEmpty');
   if(!videos.length){grid.innerHTML='';empty.classList.add('show');return;}
@@ -1624,39 +1557,40 @@ function renderVideos(){
   const tagLabel={report:'Weather Report',live:'Live Broadcast',clip:'Field Clip',upload:'Uploaded'};
   grid.innerHTML=videos.map((v,i)=>{
     let thumbHTML='';
-    if(v.ytId){thumbHTML=`<img src="https://img.youtube.com/vi/${v.ytId}/hqdefault.jpg" alt="${v.title}" onerror="this.parentElement.innerHTML='<div class=\\"video-thumb-placeholder\\"><div style=\\"font-size:2rem;\\">📹</div></div>'"/>"`;}
-    else if(v.fileData){thumbHTML=`<video src="${v.fileData}" style="width:100%;height:100%;object-fit:cover;" preload="metadata"></video>`;}
-    else{thumbHTML=`<div class="video-thumb-placeholder"><div style="font-size:2rem;">📹</div><div style="font-size:0.72rem;letter-spacing:1px;">VIDEO CLIP</div></div>`;}
-    return`<div class="video-card"><div class="video-thumb" onclick="playVideo(${i})">${thumbHTML}<div class="video-play-overlay"><div class="play-circle">▶</div></div></div><div class="video-body"><div class="video-tag-row"><span class="video-tag ${tagMap[v.cat]||'tag-clip'}">${tagLabel[v.cat]||'Clip'}</span><span class="video-date">${v.date}</span></div><div class="video-title">${v.title}</div><div class="video-desc">${v.desc||'No description provided.'}</div><div class="video-actions"><button class="v-act-btn" onclick="playVideo(${i})"><i class="fas fa-play"></i> Play</button></div></div></div>`;
+    if(v.ytId){
+      thumbHTML=`<img src="https://img.youtube.com/vi/${v.ytId}/hqdefault.jpg" alt="${v.title}" onerror="this.parentElement.innerHTML='<div class=\\'video-thumb-placeholder\\'><span>📹</span><span>VIDEO CLIP</span></div>'"/>`;
+    } else if(v.fileData){
+      thumbHTML=`<video src="${v.fileData}" preload="metadata" style="width:100%;height:100%;object-fit:cover;display:block;"></video>`;
+    } else {
+      thumbHTML=`<div class="video-thumb-placeholder"><span>📹</span><span>VIDEO CLIP</span></div>`;
+    }
+    return`<div class="video-card">
+      <div class="video-thumb" onclick="playVideo(${i})">
+        ${thumbHTML}
+        <div class="video-play-overlay"><div class="play-circle">▶</div></div>
+      </div>
+      <div class="video-body">
+        <div class="video-tag-row">
+          <span class="video-tag ${tagMap[v.cat]||'tag-clip'}">${tagLabel[v.cat]||'Clip'}</span>
+          <span class="video-date">${v.date}</span>
+        </div>
+        <div class="video-title">${v.title}</div>
+        <div class="video-desc">${v.desc||'No description provided.'}</div>
+        <div class="video-actions">
+          <button class="v-act-btn" onclick="playVideo(${i})"><i class="fas fa-play"></i>&nbsp; Play</button>
+        </div>
+      </div>
+    </div>`;
   }).join('');
 }
 renderVideos();
 
-function toggleVideoForm(){document.getElementById('videoFormWrap').classList.toggle('open');}
-
-function saveVideo(){
-  const title=document.getElementById('vTitle').value.trim();
-  if(!title){alert('Please enter a title.');return;}
-  const url=document.getElementById('vURL').value.trim();
-  const file=document.getElementById('vFile').files[0];
-  const cat=document.getElementById('vCat').value;
-  const desc=document.getElementById('vDesc').value.trim();
-  const vid={title,cat,desc,date:new Date().toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})};
-  const ytMatch=url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([\w-]{11})/);
-  if(ytMatch)vid.ytId=ytMatch[1];else if(url)vid.url=url;
-  if(file){const reader=new FileReader();reader.onload=e=>{vid.fileData=e.target.result;videos.unshift(vid);localStorage.setItem('swn_videos',JSON.stringify(videos));renderVideos();toggleVideoForm();resetVideoForm();};reader.readAsDataURL(file);return;}
-  videos.unshift(vid);localStorage.setItem('swn_videos',JSON.stringify(videos));renderVideos();toggleVideoForm();resetVideoForm();
-}
-
-function resetVideoForm(){['vTitle','vURL','vDesc'].forEach(id=>document.getElementById(id).value='');document.getElementById('vFile').value='';}
-function deleteVideo(i){if(!confirm('Delete this video?'))return;videos.splice(i,1);localStorage.setItem('swn_videos',JSON.stringify(videos));renderVideos();}
-
 function playVideo(i){
-  const v=videos[i];const modal=document.getElementById('videoModal');const frame=document.getElementById('videoModalFrame');
-  if(v.ytId){frame.innerHTML=`<iframe src="https://www.youtube.com/embed/${v.ytId}?autoplay=1" allow="autoplay;fullscreen" allowfullscreen></iframe>`;}
-  else if(v.fileData){frame.innerHTML=`<video src="${v.fileData}" controls autoplay style="width:100%;height:100%;"></video>`;}
-  else if(v.url){frame.innerHTML=`<iframe src="${v.url}" allow="autoplay;fullscreen"></iframe>`;}
-  else{frame.innerHTML=`<div style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--dim);font-family:'Oswald',sans-serif;letter-spacing:3px;">NO PLAYBACK AVAILABLE</div>`;}
+  const v=videos[i],modal=document.getElementById('videoModal'),frame=document.getElementById('videoModalFrame');
+  if(v.ytId)frame.innerHTML=`<iframe src="https://www.youtube.com/embed/${v.ytId}?autoplay=1" allow="autoplay;fullscreen" allowfullscreen></iframe>`;
+  else if(v.fileData)frame.innerHTML=`<video src="${v.fileData}" controls autoplay style="width:100%;height:100%;"></video>`;
+  else if(v.url)frame.innerHTML=`<iframe src="${v.url}" allow="autoplay;fullscreen"></iframe>`;
+  else frame.innerHTML=`<div style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--dim);font-family:'Oswald',sans-serif;letter-spacing:3px;">NO PLAYBACK AVAILABLE</div>`;
   modal.classList.add('open');
 }
 function closeVideoModal(){document.getElementById('videoModal').classList.remove('open');document.getElementById('videoModalFrame').innerHTML='';}
@@ -1669,24 +1603,36 @@ function switchRadar(type,btn){
   document.getElementById('radarFrame').src=`https://embed.windy.com/embed2.html?lat=${lat}&lon=${lon}&detailLat=${lat}&detailLon=${lon}&width=100%&height=520&zoom=${zoom}&level=surface&overlay=${overlayMap[type]||'rain'}&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=mph&metricTemp=%C2%B0F&radarRange=-1`;
 }
 
-// ── BROADCAST ──
+// ── BROADCAST STUDIO ──
 async function startBroadcast(){
   document.getElementById('broadcastModal').classList.add('open');
+  broadcastActive=true;
+
+  // Size canvases to viewport
+  const vp=document.querySelector('.bcast-viewport');
+  const bgC=document.getElementById('bgCanvas'),fgC=document.getElementById('bcastCanvas');
+  function resizeCanvases(){
+    bgC.width=vp.clientWidth;bgC.height=vp.clientHeight;
+    fgC.width=vp.clientWidth;fgC.height=vp.clientHeight;
+  }
+  resizeCanvases();window.addEventListener('resize',resizeCanvases);
+
   try{
-    broadcastStream=await navigator.mediaDevices.getUserMedia({video:{facingMode:'environment',width:{ideal:1280},height:{ideal:720}},audio:true});
+    broadcastStream=await navigator.mediaDevices.getUserMedia({video:{facingMode:'user',width:{ideal:1280},height:{ideal:720}},audio:true});
     const video=document.getElementById('bcastVideo');
     video.srcObject=broadcastStream;
-    video.onloadedmetadata=()=>{video.play();broadcastActive=true;renderBroadcastFrame();};
+    await new Promise(resolve=>video.onloadedmetadata=resolve);
+    video.play();
+    renderBroadcastFrame();
   }catch(e){
-    document.getElementById('bcastCanvas').style.background='#0a1628';
+    console.warn('Camera unavailable:',e);
     renderStaticBroadcast();
-    console.warn('Camera not available:',e);
   }
 }
 
 function stopBroadcast(){
   broadcastActive=false;
-  if(animFrameId)cancelAnimationFrame(animFrameId);
+  if(animFrameId)cancelAnimationFrame(animFrameId);animFrameId=null;
   if(broadcastStream){broadcastStream.getTracks().forEach(t=>t.stop());broadcastStream=null;}
   document.getElementById('broadcastModal').classList.remove('open');
   document.getElementById('bcastSettings').classList.remove('open');
@@ -1704,10 +1650,10 @@ function updateChroma(){
 function setBg(mode){
   bgMode=mode;
   document.querySelectorAll('.bcast-bg-btn').forEach(b=>b.classList.remove('on'));
-  document.getElementById('bg'+mode.charAt(0).toUpperCase()+mode.slice(1)).classList.add('on');
+  const idMap={radar:'bgRadar',storm:'bgStorm',map:'bgMap',clear:'bgClear'};
+  if(idMap[mode])document.getElementById(idMap[mode]).classList.add('on');
 }
 
-let bgAnim=0;
 function drawBroadcastBg(bgCtx,w,h){
   bgAnim+=0.5;bgCtx.clearRect(0,0,w,h);
   if(bgMode==='radar'){
@@ -1722,14 +1668,14 @@ function drawBroadcastBg(bgCtx,w,h){
     bgCtx.fillStyle='rgba(0,255,80,0.08)';
     bgCtx.beginPath();bgCtx.moveTo(0,0);bgCtx.arc(0,0,Math.max(w,h),angle-0.8,angle);bgCtx.closePath();bgCtx.fill();
     [80,160,240,320].forEach(r=>{bgCtx.beginPath();bgCtx.arc(0,0,r,0,Math.PI*2);bgCtx.strokeStyle='rgba(0,200,80,0.15)';bgCtx.stroke();});
+    bgCtx.strokeStyle='rgba(0,255,80,0.5)';bgCtx.lineWidth=2;
+    bgCtx.beginPath();bgCtx.moveTo(0,0);bgCtx.lineTo(Math.cos(angle)*Math.max(w,h),Math.sin(angle)*Math.max(w,h));bgCtx.stroke();
     bgCtx.restore();
-    bgCtx.save();bgCtx.translate(w/2,h/2);bgCtx.strokeStyle='rgba(0,255,80,0.6)';bgCtx.lineWidth=2;
-    bgCtx.beginPath();bgCtx.moveTo(0,0);bgCtx.lineTo(Math.cos(angle)*Math.max(w,h),Math.sin(angle)*Math.max(w,h));bgCtx.stroke();bgCtx.restore();
     [[0.3,0.4],[0.6,0.3],[0.7,0.65],[0.45,0.7],[0.8,0.45]].forEach(([fx,fy])=>{
       bgCtx.beginPath();bgCtx.arc(fx*w,fy*h,3+Math.sin(bgAnim*0.1+fx*10)*1,0,Math.PI*2);
       bgCtx.fillStyle=`rgba(0,255,80,${0.4+Math.sin(bgAnim*0.15)*0.3})`;bgCtx.fill();
     });
-  }else if(bgMode==='storm'){
+  } else if(bgMode==='storm'){
     bgCtx.fillStyle='#080c14';bgCtx.fillRect(0,0,w,h);
     const t=bgAnim*0.3;
     [[0.2,0.2,w*0.8,h*0.3,'rgba(30,40,60,0.9)'],[0.5,0.15,w*0.6,h*0.2,'rgba(20,30,50,0.8)'],[0.1,0.35,w*0.9,h*0.25,'rgba(25,35,55,0.7)']].forEach(([cx,cy,cw,ch,color])=>{
@@ -1738,70 +1684,80 @@ function drawBroadcastBg(bgCtx,w,h){
     if(Math.floor(bgAnim/30)%8===0){
       bgCtx.strokeStyle='rgba(200,220,255,0.9)';bgCtx.lineWidth=2;
       bgCtx.beginPath();const lx=w*0.4;bgCtx.moveTo(lx,0);bgCtx.lineTo(lx-20,h*0.3);bgCtx.lineTo(lx+10,h*0.3);bgCtx.lineTo(lx-30,h*0.7);bgCtx.stroke();
-      bgCtx.fillStyle='rgba(200,220,255,0.05)';bgCtx.fillRect(0,0,w,h);
+      bgCtx.fillStyle='rgba(200,220,255,0.04)';bgCtx.fillRect(0,0,w,h);
     }
     bgCtx.strokeStyle='rgba(140,180,220,0.3)';bgCtx.lineWidth=1;
-    for(let i=0;i<80;i++){const rx=(i*137+bgAnim*3)%w;const ry=(i*73+bgAnim*8)%h;bgCtx.beginPath();bgCtx.moveTo(rx,ry);bgCtx.lineTo(rx-3,ry+15);bgCtx.stroke();}
-  }else if(bgMode==='map'){
+    for(let i=0;i<80;i++){const rx=(i*137+bgAnim*3)%w,ry=(i*73+bgAnim*8)%h;bgCtx.beginPath();bgCtx.moveTo(rx,ry);bgCtx.lineTo(rx-3,ry+15);bgCtx.stroke();}
+  } else if(bgMode==='map'){
     bgCtx.fillStyle='#1a3a5c';bgCtx.fillRect(0,0,w,h);
     bgCtx.fillStyle='#2d5a27';
-    [[0,0.4,0.5,0.6],[0.4,0.3,0.35,0.5],[0.6,0.1,0.4,0.4],[0.1,0,0.25,0.35]].forEach(([x,y,sw,sh])=>{
-      bgCtx.beginPath();if(bgCtx.roundRect)bgCtx.roundRect(x*w,y*h,sw*w,sh*h,20);else bgCtx.fillRect(x*w,y*h,sw*w,sh*h);bgCtx.fill();
-    });
+    [[0,0.4,0.5,0.6],[0.4,0.3,0.35,0.5],[0.6,0.1,0.4,0.4],[0.1,0,0.25,0.35]].forEach(([x,y,sw,sh])=>{bgCtx.fillRect(x*w,y*h,sw*w,sh*h);});
     bgCtx.strokeStyle='rgba(100,180,255,0.12)';bgCtx.lineWidth=1;
     for(let i=0;i<6;i++){bgCtx.beginPath();bgCtx.moveTo(0,i*h/5);bgCtx.lineTo(w,i*h/5);bgCtx.stroke();bgCtx.beginPath();bgCtx.moveTo(i*w/5,0);bgCtx.lineTo(i*w/5,h);bgCtx.stroke();}
-    [[0.2,0.3,'rgba(0,150,255,0.5)'],[0.5,0.4,'rgba(255,100,0,0.4)'],[0.7,0.6,'rgba(0,200,100,0.4)'],[0.35,0.7,'rgba(100,100,255,0.4)']].forEach(([fx,fy,col])=>{
-      const gr=bgCtx.createRadialGradient(fx*w,fy*h,0,fx*w,fy*h,60+Math.sin(bgAnim*0.05+fx)*10);
-      gr.addColorStop(0,col);gr.addColorStop(1,'transparent');bgCtx.fillStyle=gr;bgCtx.fillRect(0,0,w,h);
+    [[0.2,0.3,'rgba(0,150,255,0.5)'],[0.5,0.4,'rgba(255,100,0,0.4)'],[0.7,0.6,'rgba(0,200,100,0.4)']].forEach(([fx,fy,col])=>{
+      const gr=bgCtx.createRadialGradient(fx*w,fy*h,0,fx*w,fy*h,60);gr.addColorStop(0,col);gr.addColorStop(1,'transparent');bgCtx.fillStyle=gr;bgCtx.fillRect(0,0,w,h);
     });
-  }else{
-    const grad=bgCtx.createLinearGradient(0,0,0,h);
-    grad.addColorStop(0,'#0a4080');grad.addColorStop(0.6,'#1a6abf');grad.addColorStop(1,'#87ceeb');
+  } else {
+    // clear sky
+    const grad=bgCtx.createLinearGradient(0,0,0,h);grad.addColorStop(0,'#0a4080');grad.addColorStop(0.6,'#1a6abf');grad.addColorStop(1,'#87ceeb');
     bgCtx.fillStyle=grad;bgCtx.fillRect(0,0,w,h);
-    const sunX=w*0.75,sunY=h*0.2;
-    const sunGrad=bgCtx.createRadialGradient(sunX,sunY,0,sunX,sunY,80);
-    sunGrad.addColorStop(0,'rgba(255,230,100,0.95)');sunGrad.addColorStop(0.5,'rgba(255,200,50,0.5)');sunGrad.addColorStop(1,'transparent');
-    bgCtx.fillStyle=sunGrad;bgCtx.fillRect(0,0,w,h);
+    const sunX=w*0.75,sunY=h*0.2,sg=bgCtx.createRadialGradient(sunX,sunY,0,sunX,sunY,80);
+    sg.addColorStop(0,'rgba(255,230,100,0.95)');sg.addColorStop(0.5,'rgba(255,200,50,0.5)');sg.addColorStop(1,'transparent');
+    bgCtx.fillStyle=sg;bgCtx.fillRect(0,0,w,h);
     [[0.1,0.25],[0.5,0.15],[0.65,0.3]].forEach(([cx,cy])=>{
       bgCtx.fillStyle='rgba(255,255,255,0.85)';
-      bgCtx.beginPath();bgCtx.arc((cx+Math.sin(bgAnim*0.008+cx)*0.02)*w,cy*h,35,0,Math.PI*2);bgCtx.fill();
-      bgCtx.beginPath();bgCtx.arc((cx+0.04+Math.sin(bgAnim*0.008+cx)*0.02)*w,(cy+0.01)*h,28,0,Math.PI*2);bgCtx.fill();
-      bgCtx.beginPath();bgCtx.arc((cx-0.03+Math.sin(bgAnim*0.008+cx)*0.02)*w,(cy+0.02)*h,24,0,Math.PI*2);bgCtx.fill();
+      bgCtx.beginPath();bgCtx.arc(cx*w,cy*h,35,0,Math.PI*2);bgCtx.fill();
+      bgCtx.beginPath();bgCtx.arc((cx+0.04)*w,(cy+0.01)*h,28,0,Math.PI*2);bgCtx.fill();
+      bgCtx.beginPath();bgCtx.arc((cx-0.03)*w,(cy+0.02)*h,24,0,Math.PI*2);bgCtx.fill();
     });
   }
 }
 
 function renderBroadcastFrame(){
   if(!broadcastActive)return;
-  const video=document.getElementById('bcastVideo'),canvas=document.getElementById('bcastCanvas'),bgCanvas=document.getElementById('bgCanvas');
-  const ctx=canvas.getContext('2d'),bgCtx=bgCanvas.getContext('2d');
-  const w=canvas.parentElement.clientWidth,h=canvas.parentElement.clientHeight;
-  canvas.width=w;canvas.height=h;bgCanvas.width=w;bgCanvas.height=h;
+  const video=document.getElementById('bcastVideo'),fgCanvas=document.getElementById('bcastCanvas'),bgCanvas=document.getElementById('bgCanvas');
+  const fgCtx=fgCanvas.getContext('2d'),bgCtx=bgCanvas.getContext('2d');
+  const w=fgCanvas.width,h=fgCanvas.height;
+
+  // Draw background
   drawBroadcastBg(bgCtx,w,h);
+
+  // Clear fg
+  fgCtx.clearRect(0,0,w,h);
+
+  // Draw camera with chroma key
   if(video.readyState>=2&&video.videoWidth>0){
     const offscreen=document.createElement('canvas');
     offscreen.width=video.videoWidth;offscreen.height=video.videoHeight;
     const oc=offscreen.getContext('2d');oc.drawImage(video,0,0);
-    const frame=oc.getImageData(0,0,offscreen.width,offscreen.height);const d=frame.data;
-    for(let i=0;i<d.length;i+=4){
-      const dr=d[i]-chromaR,dg=d[i+1]-chromaG,db=d[i+2]-chromaB;
+    const frame=oc.getImageData(0,0,offscreen.width,offscreen.height);const data=frame.data;
+    for(let i=0;i<data.length;i+=4){
+      const dr=data[i]-chromaR,dg=data[i+1]-chromaG,db=data[i+2]-chromaB;
       const dist=Math.sqrt(dr*dr+dg*dg+db*db);
-      if(dist<chromaThresh){d[i+3]=0;}
-      else if(dist<chromaThresh+chromaSmooth){d[i+3]=Math.round((dist-chromaThresh)/chromaSmooth*255);}
+      if(dist<chromaThresh){data[i+3]=0;}
+      else if(dist<chromaThresh+chromaSmooth){data[i+3]=Math.round((dist-chromaThresh)/chromaSmooth*255);}
     }
     oc.putImageData(frame,0,0);
-    const aspect=video.videoWidth/video.videoHeight;let dw=w,dh=h;
-    if(w/h>aspect){dh=h;dw=h*aspect;}else{dw=w;dh=w/aspect;}
-    ctx.drawImage(offscreen,(w-dw)/2,(h-dh)/2,dw,dh);
+    // letterbox/pillarbox fit
+    const va=video.videoWidth/video.videoHeight;
+    let dw,dh,dx,dy;
+    if(w/h>va){dh=h;dw=h*va;dx=(w-dw)/2;dy=0;}
+    else{dw=w;dh=w/va;dx=0;dy=(h-dh)/2;}
+    fgCtx.drawImage(offscreen,dx,dy,dw,dh);
   }
+
   animFrameId=requestAnimationFrame(renderBroadcastFrame);
 }
 
 function renderStaticBroadcast(){
   const bgCanvas=document.getElementById('bgCanvas'),bgCtx=bgCanvas.getContext('2d');
-  const w=bgCanvas.parentElement.clientWidth,h=bgCanvas.parentElement.clientHeight;
-  bgCanvas.width=w;bgCanvas.height=h;
-  function loop(){drawBroadcastBg(bgCtx,w,h);animFrameId=requestAnimationFrame(loop);}
+  function loop(){
+    if(!broadcastActive)return;
+    bgCanvas.width=bgCanvas.parentElement.clientWidth;
+    bgCanvas.height=bgCanvas.parentElement.clientHeight;
+    drawBroadcastBg(bgCtx,bgCanvas.width,bgCanvas.height);
+    animFrameId=requestAnimationFrame(loop);
+  }
   loop();
 }
 
@@ -1813,11 +1769,6 @@ function renderStaticBroadcast(){
     await fetchWeather(g.latitude,g.longitude,'New York','NY, US');
   }catch(e){document.getElementById('siteLoader').classList.add('gone');}
 })();
-
-// Add shake keyframe dynamically
-const style=document.createElement('style');
-style.textContent=`@keyframes admShake{0%,100%{transform:translateX(0);}20%{transform:translateX(-8px);}40%{transform:translateX(8px);}60%{transform:translateX(-5px);}80%{transform:translateX(5px);}}`;
-document.head.appendChild(style);
 </script>
 </body>
 </html>
